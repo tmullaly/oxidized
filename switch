@@ -139,8 +139,8 @@ interface Vlan1
  ip address 10.0.0.5 255.255.255.0
 !
 ip default-gateway 10.0.0.1
-ip http server
-ip http secure-server
+no ip http server
+no ip http secure-server
 ip radius source-interface Vlan1 
 logging host 10.0.0.28
 snmp-server community public RO
