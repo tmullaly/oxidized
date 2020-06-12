@@ -28,4 +28,133 @@
 ! PID: WS-C2960-24TT-L   , VID: V11  , SN: FCQ1715X28K
 ! 
 ! 
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname sw1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$Bcb/$3fYiEiZ0VtalovULl9P7z.
+!
+username oxy secret 5 $1$WmKU$BN2yXKQ1zW2k/qprm1Q7o/
+username admin secret 5 $1$E6RP$mWgF0nMZxdi40/jE0G7BA0
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3657064448
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3657064448
+ revocation-check none
+ rsakeypair TP-self-signed-3657064448
+!
+!
+crypto pki certificate chain TP-self-signed-3657064448
+ certificate self-signed 01
+  3082023C 308201A5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33363537 30363434 3438301E 170D3933 30333031 30303032 
+  30305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36353730 
+  36343434 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100CD30 AE332524 A618AFD9 2EF571F4 8F53E3AD 177C1924 5E13175C 2A602C24 
+  A63DB3F1 4C046E59 B72B50AA 78CA9856 C4E90080 5D611674 DC13C3D1 850567CD 
+  630F2EB0 1EF88E50 9FA2A34F 23337453 9464ADB0 4715DBEB F2D8C620 3CE7F3C3 
+  EDCDEA6D 46B620D7 C335BC26 16AB3F5D EF9B8AA8 C8A6D329 3C53FF3C 667F9FE2 
+  733F0203 010001A3 64306230 0F060355 1D130101 FF040530 030101FF 300F0603 
+  551D1104 08300682 04737731 2E301F06 03551D23 04183016 8014B3F4 E464D93A 
+  44AF2778 F711BFD3 D96FE232 700A301D 0603551D 0E041604 14B3F4E4 64D93A44 
+  AF2778F7 11BFD3D9 6FE23270 0A300D06 092A8648 86F70D01 01040500 03818100 
+  4C825750 FD18DB70 82C6BA5C E4B4FD4E B3020301 B845308D 5953B26C 0FE5FF12 
+  24A79567 1CD306E8 84CB77B8 1F9EF63C 2559FB18 C591157B A148AB18 47B48893 
+  B32F90C7 E03F4FAB 22BC8B99 58B795CB 9EF59426 C6903FFC AA0C9CA9 32B58CAA 
+  0F5C5902 58DB9408 BE06148E 04677B0C 0ACE2BEA 98D82F2A 42C9BDB5 BD5DDB3E
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.0.0.8 255.255.255.0
+!
+ip http server
+ip http secure-server
+snmp-server community public RO
+!
+line con 0
+line vty 0 4
+ login local
+line vty 5 15
+ password Password1
+ login
+!
+end
 
