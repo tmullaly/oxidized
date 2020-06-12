@@ -43,6 +43,8 @@ boot-end-marker
 !
 enable secret 5 $1$UlaD$zkVyBdR/ibODMbyh/OW251
 !
+username oxy secret 5 $1$b.KU$WoiS9pX4MstpsEhNhxiTB.
+username admin secret 5 $1$Tp/4$.szgi8kQ072aje5D8xISu1
 aaa new-model
 !
 !
