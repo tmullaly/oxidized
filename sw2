@@ -1,0 +1,31 @@
+! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE6, RELEASE SOFTWARE (fc2)
+! 
+! Image: Software: C2960-LANBASEK9-M, 15.0(2)SE6, RELEASE SOFTWARE (fc2)
+! Image: Compiled: Wed 09-Apr-14 03:40 by prod_rel_team
+! Image: flash:/c2960-lanbasek9-mz.150-2.SE6.bin
+! Chassis type: WS-C2960-24TT-L
+! Memory: main 65536K
+! Processor ID: FOC1507Z22B
+! CPU: PowerPC405
+! 
+! VTP: VTP Version capable             : 1 to 3
+! VTP: VTP version running             : 1
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: Device ID                       : 04c5.a455.d380
+! VTP: Local updater ID is 10.0.0.9 on interface Vl1 (lowest numbered VLAN interface found)
+! VTP: Feature VLAN:
+! VTP: --------------
+! VTP: VTP Operating Mode                : Server
+! VTP: Maximum VLANs supported locally   : 255
+! VTP: Number of existing VLANs          : 5
+! VTP: Configuration Revision            : 0
+! VTP: MD5 digest                        : 0x57 0xCD 0x40 0x65 0x63 0x59 0x47 0xBD 
+! VTP:                                     0x56 0x9D 0x4A 0x3E 0xA5 0x69 0x35 0xBC 
+! 
+! NAME: "1", DESCR: "WS-C2960-24TT-L"
+! PID: WS-C2960-24TT-L   , VID: V09  , SN: FOC1507Z22B
+! 
+! 
+
