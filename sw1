@@ -145,8 +145,8 @@ interface GigabitEthernet0/2
 interface Vlan1
  ip address 10.0.0.8 255.255.255.0
 !
-ip http server
-ip http secure-server
+no ip http server
+no ip http secure-server
 snmp-server community public RO
 !
 line con 0
