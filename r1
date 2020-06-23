@@ -1,0 +1,143 @@
+! Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M, RELEASE SOFTWARE (fc1)
+! 
+! Image: Software: C2900-UNIVERSALK9-M, 15.7(3)M, RELEASE SOFTWARE (fc1)
+! Image: Compiled: Thu 27-Jul-17 02:37 by prod_rel_team
+! ROM Bootstrap: Version 15.0(1r)M16, RELEASE SOFTWARE (fc1)
+! Image: flash0:c2900-universalk9-mz.SPA.157-3.M.bin
+! Chassis type: CISCO2901/K9
+! Memory: main 483328K/40960K
+! Processor ID: FTX1742831B
+! CPU: 
+! Memory: nvram 255K
+! 
+! VTP: VTP Version                     : 2
+! VTP: Configuration Revision          : 0
+! VTP: Maximum VLANs supported locally : 20
+! VTP: Number of existing VLANs        : 5
+! VTP: VTP Operating Mode              : Server
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP V2 Mode                     : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: MD5 digest                      : 0xBF 0x86 0x94 0x45 0xFC 0xDF 0xB5 0x70 
+! VTP: Local updater ID is 10.0.0.11 on interface Gi0/0 (first interface found)
+! 
+! NAME: "CISCO2901/K9", DESCR: "CISCO2901/K9 chassis, Hw Serial#: FTX1742831B, Hw Revision: 1.0"
+! PID: CISCO2901/K9      , VID: V06 , SN: FTX1742831B
+! 
+! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 0", DESCR: "WAN Interface Card - HWIC CSU/DSU"
+! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC16374XXF
+! 
+! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 1", DESCR: "WAN Interface Card - HWIC CSU/DSU"
+! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC15222TJ6
+! 
+! NAME: "C1941/C2901 AC Power Supply", DESCR: "C1941/C2901 AC Power Supply"
+! PID: PWR-1941-2901-AC  , VID:    , SN:            
+! 
+! 
+!
+!
+version 15.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname r1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$rjrA$jssKd/.w6c.JhfbtNzClA0
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FTX1742831B
+!
+!
+username oxy secret 5 $1$9cf4$rj5uLXeM0sDYxIQKCUdIt1
+username admin secret 5 $1$iBH8$6B07cj.w5T12FyBvCwzwl.
+!
+redundancy
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address 10.0.0.11 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+!
+!
+!
+control-plane
+!
+!
+ vstack
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password Password1
+ login
+ transport input all
+ transport output all
+!
+scheduler allocate 20000 1000
+!
+end
+
