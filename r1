@@ -117,6 +117,7 @@ ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
 !
 !
+snmp-server community public RO
 !
 control-plane
 !
