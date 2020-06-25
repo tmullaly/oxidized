@@ -132,8 +132,7 @@ line 2
  transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
  stopbits 1
 line vty 0 4
- password Password1
- login
+ login local
  transport input all
  transport output all
 !
