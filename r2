@@ -134,6 +134,7 @@ logging esm config
 !
 !
 !
+snmp-server community public RO
 !
 !
 control-plane
