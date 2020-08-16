@@ -1,0 +1,119 @@
+! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+! 
+! Image: Software: C2960-LANBASEK9-M, 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+! Image: Compiled: Sat 19-Aug-17 09:34 by prod_rel_team
+! Image: flash:c2960-lanbasek9-mz.150-2.SE11.bin
+! Chassis type: WS-C2960G-8TC-L
+! Memory: main 65536K
+! Processor ID: FOC1652X1V8
+! CPU: PowerPC405
+! 
+! VTP: VTP Version capable             : 1 to 3
+! VTP: VTP version running             : 1
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: Device ID                       : 04da.d253.e980
+! VTP: Local updater ID is 10.0.0.14 on interface Vl1 (lowest numbered VLAN interface found)
+! VTP: Feature VLAN:
+! VTP: --------------
+! VTP: VTP Operating Mode                : Server
+! VTP: Maximum VLANs supported locally   : 255
+! VTP: Number of existing VLANs          : 5
+! VTP: Configuration Revision            : 0
+! VTP: MD5 digest                        : 0x57 0xCD 0x40 0x65 0x63 0x59 0x47 0xBD 
+! VTP:                                     0x56 0x9D 0x4A 0x3E 0xA5 0x69 0x35 0xBC 
+! 
+! NAME: "1", DESCR: "WS-C2960G-8TC-L"
+! PID: WS-C2960G-8TC-L   , VID: V02  , SN: FOC1652X1V8
+! 
+! 
+!
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname switch2
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$UlaD$zkVyBdR/ibODMbyh/OW251
+!
+username oxy secret 5 $1$b.KU$WoiS9pX4MstpsEhNhxiTB.
+username admin secret 5 $1$Tp/4$.szgi8kQ072aje5D8xISu1
+aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+!
+!
+ip domain-name thunderhouse.com
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh time-out 50
+ip ssh authentication-retries 4
+ip ssh version 2
+!
+!
+!
+!
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface GigabitEthernet0/3
+!
+interface GigabitEthernet0/4
+!
+interface GigabitEthernet0/5
+!
+interface GigabitEthernet0/6
+!
+interface GigabitEthernet0/7
+!
+interface GigabitEthernet0/8
+!
+interface Vlan1
+ ip address 10.0.0.14 255.255.255.0
+!
+ip default-gateway 10.0.0.1
+no ip http server
+no ip http secure-server
+logging host 10.0.0.28
+snmp-server community public RO
+!
+!
+!
+vstack
+!
+line con 0
+line vty 5 15
+ transport input ssh
+!
+ntp master 3
+ntp server 69.89.207.99
+end
+
