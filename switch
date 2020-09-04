@@ -113,28 +113,28 @@ vlan internal allocation policy ascending
 !
 !
 interface GigabitEthernet0/1
- description switch-port-1
+ description gateway
 !
 interface GigabitEthernet0/2
- description switch-port-2
+ description lenovo
 !
 interface GigabitEthernet0/3
- description switch-port-3
+ description airport-extreme
 !
 interface GigabitEthernet0/4
- description switch-port-4
+ description synology
 !
 interface GigabitEthernet0/5
- description switch-port-5
+ description buffalo
 !
 interface GigabitEthernet0/6
- description switch-port-6
+ description esxi-vmnic0
 !
 interface GigabitEthernet0/7
- description switch-port-7
+ description esxi-vmnic1
 !
 interface GigabitEthernet0/8
- description switch-port-8
+ description switch2
 !
 interface Vlan1
  description default-vlan
