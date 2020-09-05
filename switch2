@@ -82,6 +82,7 @@ ip ssh version 2
 !
 interface GigabitEthernet0/1
  description esxi-vmnic2
+ switchport trunk allowed vlan 1,200
  switchport mode trunk
 !
 interface GigabitEthernet0/2
