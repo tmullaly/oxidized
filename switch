@@ -14,15 +14,15 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : 34a8.4e27.b680
-! VTP: Local updater ID is 10.0.0.5 on interface Vl1 (lowest numbered VLAN interface found)
+! VTP: Local updater ID is 10.0.0.5 on interface Vl200 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
 ! VTP: Maximum VLANs supported locally   : 255
-! VTP: Number of existing VLANs          : 7
-! VTP: Configuration Revision            : 2
-! VTP: MD5 digest                        : 0x1F 0xA6 0x00 0xD5 0x8F 0x09 0x54 0xCD 
-! VTP:                                     0xB4 0xD3 0xC1 0x8E 0x02 0x18 0x1A 0xE7 
+! VTP: Number of existing VLANs          : 10
+! VTP: Configuration Revision            : 8
+! VTP: MD5 digest                        : 0x82 0x8E 0x80 0x1D 0xEA 0x24 0x8D 0xD4 
+! VTP:                                     0x45 0x66 0x72 0x6B 0x75 0xA2 0x53 0xFB 
 ! 
 ! NAME: "1", DESCR: "WS-C2960G-8TC-L"
 ! PID: WS-C2960G-8TC-L   , VID: V02  , SN: FOC1635X3HL
@@ -114,30 +114,41 @@ vlan internal allocation policy ascending
 !
 interface GigabitEthernet0/1
  description gateway
+ switchport access vlan 200
 !
 interface GigabitEthernet0/2
  description lenovo
+ switchport access vlan 200
 !
 interface GigabitEthernet0/3
  description airport-extreme
+ switchport access vlan 200
 !
 interface GigabitEthernet0/4
  description synology
+ switchport access vlan 200
 !
 interface GigabitEthernet0/5
  description buffalo
+ switchport access vlan 200
 !
 interface GigabitEthernet0/6
  description esxi-vmnic0
+ switchport access vlan 200
 !
 interface GigabitEthernet0/7
  description esxi-vmnic1
+ switchport access vlan 200
 !
 interface GigabitEthernet0/8
  description to-switch2
+ switchport access vlan 200
 !
 interface Vlan1
  description default-vlan
+ no ip address
+!
+interface Vlan200
  ip address 10.0.0.5 255.255.255.0
 !
 ip default-gateway 10.0.0.1
