@@ -134,15 +134,18 @@ interface GigabitEthernet0/5
 !
 interface GigabitEthernet0/6
  description esxi-vmnic0
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/7
  description esxi-vmnic1
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/8
  description to-switch2
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface Vlan1
  description default-vlan
