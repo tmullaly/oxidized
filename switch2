@@ -82,19 +82,23 @@ ip ssh version 2
 !
 interface GigabitEthernet0/1
  description esxi-vmnic2
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/2
  description esxi-vmnic3
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/3
  description esxi-vmnic4
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/4
  description esxi-vmnic5
- switchport access vlan 200
+ switchport trunk allowed vlan 1,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/5
  switchport access vlan 200
@@ -108,7 +112,8 @@ interface GigabitEthernet0/7
 !
 interface GigabitEthernet0/8
  description to-switch
- switchport access vlan 200
+ switchport trunk allowed vlan 100,200,300-302
+ switchport mode trunk
 !
 interface Vlan1
  no ip address
