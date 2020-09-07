@@ -134,17 +134,17 @@ interface GigabitEthernet0/5
 !
 interface GigabitEthernet0/6
  description esxi-vmnic0
- switchport trunk allowed vlan 1,100,200,300-302
+ switchport trunk allowed vlan 100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/7
  description esxi-vmnic1
- switchport trunk allowed vlan 1,100,200,300-302
+ switchport trunk allowed vlan 100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/8
  description to-switch2
- switchport trunk allowed vlan 1,100,200,300-302
+ switchport trunk allowed vlan 100,200,300-302
  switchport mode trunk
 !
 interface Vlan1
@@ -152,6 +152,7 @@ interface Vlan1
  no ip address
 !
 interface Vlan200
+ description Data-Network
  ip address 10.0.0.5 255.255.255.0
 !
 ip default-gateway 10.0.0.1
