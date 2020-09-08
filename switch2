@@ -48,6 +48,14 @@ username admin secret 5 $1$Tp/4$.szgi8kQ072aje5D8xISu1
 aaa new-model
 !
 !
+aaa group server radius IAS
+ server-private 10.0.0.15 auth-port 1812 acct-port 1813 key secret12key
+!
+aaa authentication login userAuthentication local group IAS
+aaa authorization exec userAuthorization local group IAS if-authenticated 
+aaa authorization network userAuthorization local group IAS 
+aaa accounting exec default start-stop group IAS
+aaa accounting system default start-stop group IAS
 !
 !
 !
