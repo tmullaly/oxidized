@@ -378,6 +378,7 @@ interface Vlan1
 interface Vlan200
  ip address 10.0.0.9 255.255.255.0
 !
+ip default-gateway 10.0.0.1
 no ip http server
 no ip http secure-server
 logging host 10.0.0.28
