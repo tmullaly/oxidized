@@ -134,9 +134,6 @@ interface GigabitEthernet0/8
 interface Vlan1
  no ip address
 !
-interface Vlan10
- no ip address
-!
 interface Vlan200
  ip address 10.0.0.14 255.255.255.0
 !
