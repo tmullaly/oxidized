@@ -14,20 +14,21 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : 04c5.a455.d380
-! VTP: Local updater ID is 10.0.0.9 on interface Vl1 (lowest numbered VLAN interface found)
+! VTP: Local updater ID is 10.0.0.9 on interface Vl200 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
 ! VTP: Maximum VLANs supported locally   : 255
-! VTP: Number of existing VLANs          : 5
-! VTP: Configuration Revision            : 0
-! VTP: MD5 digest                        : 0x57 0xCD 0x40 0x65 0x63 0x59 0x47 0xBD 
-! VTP:                                     0x56 0x9D 0x4A 0x3E 0xA5 0x69 0x35 0xBC 
+! VTP: Number of existing VLANs          : 8
+! VTP: Configuration Revision            : 11
+! VTP: MD5 digest                        : 0x7A 0x90 0xF0 0xD9 0xB4 0x7E 0xE9 0xC0 
+! VTP:                                     0x1D 0x56 0x6C 0xB2 0x8D 0xC0 0x12 0x4C 
 ! 
 ! NAME: "1", DESCR: "WS-C2960-24TT-L"
 ! PID: WS-C2960-24TT-L   , VID: V09  , SN: FOC1507Z22B
 ! 
 ! 
+!
 !
 version 15.0
 no service pad
@@ -44,6 +45,7 @@ enable secret 5 $1$Bcb/$3fYiEiZ0VtalovULl9P7z.
 !
 username admin secret 5 $1$CO3x$oy5duX0b0Wtgs5WmVfIc2.
 username oxy secret 5 $1$HX4t$7pKmWTbZUzJdJOOMWH8G4.
+username tom secret 5 $1$TJ8N$axttSdTWtTdWMD3X4fWm01
 no aaa new-model
 system mtu routing 1500
 !
@@ -94,58 +96,284 @@ vlan internal allocation policy ascending
 !
 !
 interface FastEthernet0/1
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/2
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/3
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/4
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/5
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/6
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/7
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/8
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/9
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/10
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/11
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/12
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/13
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/14
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/15
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/16
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/17
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/18
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/19
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/20
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/21
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/22
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/23
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/24
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 100
+ queue-set 2
+ mls qos trust dscp
+ storm-control multicast level 50.00
+ no cdp enable
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface GigabitEthernet0/1
+ description to-sw3
+ switchport trunk allowed vlan 10,100,200
+ switchport mode trunk
 !
 interface GigabitEthernet0/2
+ description to-sw1
+ switchport trunk allowed vlan 10,100,200
+ switchport mode trunk
 !
 interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan200
  ip address 10.0.0.9 255.255.255.0
 !
 no ip http server
