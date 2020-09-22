@@ -47,6 +47,8 @@ username admin secret 5 $1$CO3x$oy5duX0b0Wtgs5WmVfIc2.
 username oxy secret 5 $1$HX4t$7pKmWTbZUzJdJOOMWH8G4.
 username tom secret 5 $1$TJ8N$axttSdTWtTdWMD3X4fWm01
 no aaa new-model
+clock timezone EST -5 0
+clock summer-time EDT recurring
 system mtu routing 1500
 !
 !
@@ -378,6 +380,7 @@ interface Vlan200
 !
 no ip http server
 no ip http secure-server
+logging host 10.0.0.28
 snmp-server community public RO
 !
 !
@@ -388,5 +391,10 @@ line vty 5 15
  password Password1
  login
 !
+ntp server 97.107.128.165
+ntp server 74.6.168.73
+ntp server 162.248.241.94
+ntp server 69.89.207.99
+ntp server 68.183.107.237
 end
 
