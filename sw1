@@ -1,8 +1,8 @@
-! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE7, RELEASE SOFTWARE (fc1)
+! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE6, RELEASE SOFTWARE (fc2)
 ! 
-! Image: Software: C2960-LANBASEK9-M, 12.2(55)SE7, RELEASE SOFTWARE (fc1)
-! Image: Compiled: Mon 28-Jan-13 10:22 by prod_rel_team
-! Image: flash:/c2960-lanbasek9-mz.122-55.SE7.bin
+! Image: Software: C2960-LANBASEK9-M, 15.0(2)SE6, RELEASE SOFTWARE (fc2)
+! Image: Compiled: Wed 09-Apr-14 03:40 by prod_rel_team
+! Image: flash:/c2960-lanbasek9-mz.150-2.SE6.bin
 ! Chassis type: WS-C2960-24TT-L
 ! Memory: main 65536K
 ! Processor ID: FCQ1715X28K
@@ -29,7 +29,8 @@
 ! 
 ! 
 !
-version 12.2
+!
+version 15.0
 no service pad
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -44,9 +45,9 @@ enable secret 5 $1$Bcb/$3fYiEiZ0VtalovULl9P7z.
 !
 username oxy secret 5 $1$WmKU$BN2yXKQ1zW2k/qprm1Q7o/
 username admin secret 5 $1$E6RP$mWgF0nMZxdi40/jE0G7BA0
-!
-!
 no aaa new-model
+clock timezone EST -5 0
+clock summer-time EDT recurring
 system mtu routing 1500
 !
 !
@@ -79,7 +80,9 @@ crypto pki certificate chain TP-self-signed-3657064448
   24A79567 1CD306E8 84CB77B8 1F9EF63C 2559FB18 C591157B A148AB18 47B48893 
   B32F90C7 E03F4FAB 22BC8B99 58B795CB 9EF59426 C6903FFC AA0C9CA9 32B58CAA 
   0F5C5902 58DB9408 BE06148E 04677B0C 0ACE2BEA 98D82F2A 42C9BDB5 BD5DDB3E
-  quit
+  	quit
+!
+!
 !
 !
 !
@@ -87,6 +90,9 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+!
+!
+!
 !
 !
 !
@@ -216,8 +222,9 @@ interface Vlan200
 !
 no ip http server
 no ip http secure-server
-logging 10.0.0.28
+logging host 10.0.0.28
 snmp-server community public RO
+!
 !
 line con 0
 line vty 0 4
@@ -226,5 +233,10 @@ line vty 5 15
  password Password1
  login
 !
+ntp server 97.107.128.165
+ntp server 74.6.168.73
+ntp server 162.248.241.94
+ntp server 69.89.207.99
+ntp server 68.183.107.237
 end
 
