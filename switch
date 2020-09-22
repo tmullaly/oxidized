@@ -113,37 +113,29 @@ vlan internal allocation policy ascending
 !
 !
 interface GigabitEthernet0/1
- description gateway
  switchport access vlan 200
 !
 interface GigabitEthernet0/2
- description lenovo
  switchport access vlan 200
 !
 interface GigabitEthernet0/3
- description airport-extreme
  switchport access vlan 10
 !
 interface GigabitEthernet0/4
- description synology
  switchport access vlan 200
 !
 interface GigabitEthernet0/5
- description buffalo
  switchport access vlan 200
 !
 interface GigabitEthernet0/6
- description esxi-vmnic0
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/7
- description esxi-vmnic1
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/8
- description to-switch2
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
