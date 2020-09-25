@@ -52,6 +52,8 @@ clock summer-time EDT recurring
 system mtu routing 1500
 !
 !
+login on-failure log
+login on-success log
 !
 !
 crypto pki trustpoint TP-self-signed-2757088128
