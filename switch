@@ -67,6 +67,8 @@ clock timezone EST -4 0
 system mtu routing 1500
 !
 !
+login on-failure log
+login on-success log
 !
 !
 crypto pki trustpoint TP-self-signed-1311225472
@@ -125,7 +127,8 @@ interface GigabitEthernet0/4
  switchport access vlan 200
 !
 interface GigabitEthernet0/5
- switchport access vlan 200
+ switchport trunk allowed vlan 10,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/6
  switchport trunk allowed vlan 10,100,200,300-302
