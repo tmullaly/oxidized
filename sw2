@@ -390,9 +390,11 @@ snmp-server community public RO
 line con 0
 line vty 0 4
  login local
+ transport input ssh
 line vty 5 15
  password Password1
  login
+ transport input none
 !
 ntp server 97.107.128.165
 ntp server 74.6.168.73
