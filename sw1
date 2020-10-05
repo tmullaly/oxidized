@@ -14,7 +14,7 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : 44ad.d9fa.6000
-! VTP: Local updater ID is 10.0.0.8 on interface Vl200 (lowest numbered VLAN interface found)
+! VTP: Local updater ID is 192.168.0.8 on interface Vl10 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
@@ -219,6 +219,9 @@ interface GigabitEthernet0/2
 interface Vlan1
  no ip address
  shutdown
+!
+interface Vlan10
+ ip address 192.168.0.8 255.255.255.0
 !
 interface Vlan200
  ip address 10.0.0.8 255.255.255.0
