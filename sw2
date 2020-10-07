@@ -19,10 +19,10 @@
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
 ! VTP: Maximum VLANs supported locally   : 255
-! VTP: Number of existing VLANs          : 8
-! VTP: Configuration Revision            : 11
-! VTP: MD5 digest                        : 0x7A 0x90 0xF0 0xD9 0xB4 0x7E 0xE9 0xC0 
-! VTP:                                     0x1D 0x56 0x6C 0xB2 0x8D 0xC0 0x12 0x4C 
+! VTP: Number of existing VLANs          : 11
+! VTP: Configuration Revision            : 14
+! VTP: MD5 digest                        : 0xD4 0x35 0xAB 0x87 0xFE 0x2F 0x27 0x69 
+! VTP:                                     0xAB 0x1B 0xE4 0xC8 0x37 0xF1 0xEF 0x9C 
 ! 
 ! NAME: "1", DESCR: "WS-C2960-24TT-L"
 ! PID: WS-C2960-24TT-L   , VID: V09  , SN: FOC1507Z22B
@@ -293,12 +293,13 @@ interface FastEthernet0/24
 !
 interface GigabitEthernet0/1
  description to-sw3
- switchport trunk allowed vlan 10,100,200
+ switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/2
  description to-sw1
- switchport trunk allowed vlan 10,100,200
+ switchport trunk native vlan 200
+ switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface Vlan1
