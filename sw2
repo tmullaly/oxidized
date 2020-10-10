@@ -293,12 +293,13 @@ interface FastEthernet0/24
 !
 interface GigabitEthernet0/1
  description to-sw3
+ switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/2
  description to-sw1
- switchport trunk native vlan 200
+ switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
