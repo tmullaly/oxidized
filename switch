@@ -139,6 +139,7 @@ interface GigabitEthernet0/7
  switchport mode trunk
 !
 interface GigabitEthernet0/8
+ switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
