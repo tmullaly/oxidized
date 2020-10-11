@@ -14,7 +14,7 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : 04da.d253.e980
-! VTP: Local updater ID is 10.0.0.14 on interface Vl200 (lowest numbered VLAN interface found)
+! VTP: Local updater ID is 10.1.0.13 on interface Vl10 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
@@ -137,13 +137,16 @@ interface GigabitEthernet0/8
 interface Vlan1
  no ip address
 !
-interface Vlan200
- ip address 10.0.0.14 255.255.255.0
+interface Vlan10
+ ip address 10.1.0.13 255.255.255.0
 !
-ip default-gateway 10.0.0.1
+interface Vlan200
+ no ip address
+!
+ip default-gateway 10.10.0.2
 no ip http server
 no ip http secure-server
-logging host 10.0.0.28
+logging host 10.20.0.28
 snmp-server community public RO
 !
 !
