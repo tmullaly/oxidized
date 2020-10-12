@@ -44,7 +44,7 @@ boot-start-marker
 boot-end-marker
 !
 !
-enable password Password1
+enable secret 5 $1$6YF1$XJUtqq79zKW3uJ3tJsgPp.
 !
 no aaa new-model
 memory-size iomem 10
@@ -70,12 +70,6 @@ clock summer-time EDT recurring
 !
 ip dhcp excluded-address 10.20.0.1 10.20.0.100
 ip dhcp excluded-address 10.10.0.1 10.10.0.100
-!
-ip dhcp pool vlan200-pool
- network 10.20.0.0 255.255.255.0
- default-router 10.20.0.2 
- dns-server 10.20.0.50 
- lease 0 0 1
 !
 ip dhcp pool vlan100-pool
  network 10.10.0.0 255.255.255.0
