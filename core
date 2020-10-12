@@ -1,0 +1,206 @@
+! Cisco IOS Software, C880 Software (C880DATA-UNIVERSALK9-M), Version 15.4(3)M5, RELEASE SOFTWARE (fc1)
+! 
+! Image: Software: C880DATA-UNIVERSALK9-M, 15.4(3)M5, RELEASE SOFTWARE (fc1)
+! Image: Compiled: Tue 09-Feb-16 06:35 by prod_rel_team
+! ROM Bootstrap: Version 12.4(22r)YB5, RELEASE SOFTWARE (fc1)
+! Image: flash:c880data-universalk9-mz.154-3.M5.bin
+! Chassis type: 881
+! Memory: main 236544K/25600K
+! Processor ID: FTX1405YDC7
+! CPU: MPC8300
+! Memory: nvram 256K
+! Memory: flash 126000K
+! 
+! VTP: VTP Version                     : 2
+! VTP: Configuration Revision          : 6
+! VTP: Maximum VLANs supported locally : 12
+! VTP: Number of existing VLANs        : 9
+! VTP: VTP Operating Mode              : Server
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP V2 Mode                     : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: MD5 digest                      : 0xC7 0x33 0x50 0xEE 0x58 0x63 0x5D 0xFF 
+! VTP: Local updater ID is 10.1.0.1 on interface Vl10 (lowest numbered VLAN interface found)
+! 
+! NAME: "881", DESCR: "881 chassis, Hw Serial#: FTX1405YDC7, Hw Revision: 1.0"
+! PID: CISCO881-SEC-K9   , VID: V01 , SN: FTX1405YDC7
+! 
+! NAME: "ESW Power Daughter Card", DESCR: "4-Port ESW Power Daughter Card"
+! PID: 800-IL-PM-2       , VID: V01, SN: FOC14126A57
+! 
+! 
+!
+!
+version 15.4
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Core
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password Password1
+!
+no aaa new-model
+memory-size iomem 10
+clock timezone EST -5 0
+clock summer-time EDT recurring
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+ip dhcp excluded-address 10.20.0.1 10.20.0.100
+ip dhcp excluded-address 10.10.0.1 10.10.0.100
+!
+ip dhcp pool vlan200-pool
+ network 10.20.0.0 255.255.255.0
+ default-router 10.20.0.2 
+ dns-server 10.20.0.50 
+ lease 0 0 1
+!
+ip dhcp pool vlan100-pool
+ network 10.10.0.0 255.255.255.0
+ default-router 10.10.0.2 
+ dns-server 1.1.1.1 
+ lease 0 0 1
+!
+!
+!
+ip domain name thunderhouse.com
+ip cef
+login on-failure log
+login on-success log
+no ipv6 cef
+!
+!
+multilink bundle-name authenticated
+cts logging verbose
+license udi pid CISCO881-SEC-K9 sn FTX1405YDC7
+!
+!
+username oxy secret 5 $1$WmKU$BN2yXKQ1zW2k/qprm1Q7o/
+username admin privilege 15 secret 5 $1$E6RP$mWgF0nMZxdi40/jE0G7BA0
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0
+ description trunk-to-dsw1
+ switchport trunk native vlan 10
+ switchport mode trunk
+ no ip address
+!
+interface FastEthernet1
+ description laptop
+ switchport access vlan 200
+ no ip address
+!
+interface FastEthernet2
+ description voip-phone
+ switchport access vlan 100
+ no ip address
+!
+interface FastEthernet3
+ description wireless-ap
+ switchport access vlan 200
+ no ip address
+!
+interface FastEthernet4
+ description wan
+ ip address 10.0.0.254 255.255.255.0
+ ip nat outside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+!
+interface FastEthernet4.1
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description Management
+ ip address 10.1.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Vlan100
+ description Voice
+ ip address 10.10.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Vlan200
+ description Data
+ ip address 10.20.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip nat inside source list 1 interface FastEthernet4 overload
+ip nat inside source list 10 interface FastEthernet4 overload
+ip nat inside source list 20 interface FastEthernet4 overload
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
+ip route 10.1.0.0 255.255.255.0 Vlan10
+ip route 10.10.0.0 255.255.255.0 Vlan100
+ip route 10.20.0.0 255.255.255.0 Vlan200
+!
+logging host 10.20.0.28
+!
+snmp-server community public RO
+access-list 1 permit 10.1.0.0 0.0.0.255
+access-list 10 permit 10.10.0.0 0.0.0.255
+access-list 20 permit 10.20.0.0 0.0.0.255
+access-list 30 permit 10.30.0.0 0.0.0.255
+!
+control-plane
+!
+!
+!
+line con 0
+ no modem enable
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+ntp master 3
+ntp server 69.89.207.99
+!
+end
+
