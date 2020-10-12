@@ -230,7 +230,7 @@ interface Vlan200
 ip default-gateway 10.1.0.2
 no ip http server
 no ip http secure-server
-logging host 10.0.0.28
+logging host 10.20.0.28
 snmp-server community public RO
 !
 !
