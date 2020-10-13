@@ -49,7 +49,7 @@ aaa new-model
 !
 !
 aaa group server radius IAS
- server-private 10.0.0.15 auth-port 1812 acct-port 1813 key secret12key
+ server-private 10.20.0.15 auth-port 1812 acct-port 1813 key secret12key
 !
 aaa authentication login userAuthentication local group IAS
 aaa authorization exec userAuthorization local group IAS if-authenticated 
@@ -154,8 +154,13 @@ snmp-server community public RO
 vstack
 !
 line con 0
-line vty 5 15
+line vty 0 4
+ authorization exec userAuthorization
+ login authentication userAuthentication
  transport input ssh
+line vty 5 15
+ no exec
+ transport input none
 !
 ntp master 3
 ntp server 69.89.207.99
