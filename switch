@@ -71,14 +71,7 @@ login on-failure log
 login on-success log
 !
 !
-crypto pki trustpoint TP-self-signed-1311225472
- enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-1311225472
- revocation-check none
- rsakeypair TP-self-signed-1311225472
 !
-!
-crypto pki certificate chain TP-self-signed-1311225472
 !
 !
 !
@@ -150,11 +143,10 @@ line con 0
 line vty 0 4
  authorization exec userAuthorization
  login authentication userAuthentication
- transport input telnet ssh
+ transport input ssh
 line vty 5 15
- authorization exec userAuthorization
- login authentication userAuthentication
- transport input telnet ssh
+ no exec
+ transport input none
 !
 ntp master 3
 ntp server 69.89.207.99
