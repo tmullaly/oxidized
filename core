@@ -137,8 +137,6 @@ interface FastEthernet4
  duplex auto
  speed auto
 !
-interface FastEthernet4.1
-!
 interface Vlan1
  no ip address
  shutdown
