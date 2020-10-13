@@ -67,6 +67,8 @@ clock timezone EST -4 0
 system mtu routing 1500
 !
 !
+ip name-server 10.0.0.3
+ip name-server 10.0.0.4
 login on-failure log
 login on-success log
 !
