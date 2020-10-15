@@ -192,7 +192,7 @@ line vty 0 4
  transport input ssh
 !
 ntp master 3
-ntp server 69.89.207.99
+ntp server 69.89.207.99 minpoll 7
 !
 end
 
