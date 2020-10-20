@@ -132,6 +132,7 @@ interface FastEthernet0/4
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/5
+ description hv1-eth1
  switchport access vlan 200
  switchport mode access
  switchport voice vlan 100
@@ -261,7 +262,9 @@ interface FastEthernet0/20
 !
 interface FastEthernet0/21
  switchport access vlan 200
- switchport mode access
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,200,300-302
+ switchport mode trunk
  switchport voice vlan 100
  no cdp enable
  spanning-tree portfast
@@ -269,7 +272,9 @@ interface FastEthernet0/21
 !
 interface FastEthernet0/22
  switchport access vlan 200
- switchport mode access
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,200,300-302
+ switchport mode trunk
  switchport voice vlan 100
  no cdp enable
  spanning-tree portfast
@@ -277,7 +282,9 @@ interface FastEthernet0/22
 !
 interface FastEthernet0/23
  switchport access vlan 200
- switchport mode access
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,200,300-302
+ switchport mode trunk
  switchport voice vlan 100
  no cdp enable
  spanning-tree portfast
@@ -285,20 +292,22 @@ interface FastEthernet0/23
 !
 interface FastEthernet0/24
  switchport access vlan 200
- switchport mode access
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,200,300-302
+ switchport mode trunk
  switchport voice vlan 100
  no cdp enable
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
 interface GigabitEthernet0/1
- description to-sw3
+ description trunk-to-dsw1
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface GigabitEthernet0/2
- description to-sw1
+ description trunk-to-dsw1
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
