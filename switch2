@@ -67,8 +67,7 @@ system mtu routing 1500
 !
 !
 ip domain-name thunderhouse.com
-ip name-server 8.8.8.8
-ip name-server 1.1.1.1
+ip name-server 10.1.0.50
 login on-failure log
 login on-success log
 !
@@ -93,24 +92,28 @@ ip ssh version 2
 !
 !
 interface GigabitEthernet0/1
- description esxi-vmnic2
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/2
- description esxi-vmnic3
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/3
- description esxi-vmnic4
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/4
- description esxi-vmnic5
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/5
  switchport access vlan 200
@@ -125,13 +128,13 @@ interface GigabitEthernet0/6
  spanning-tree portfast
 !
 interface GigabitEthernet0/7
- description to-sw2
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
  spanning-tree portfast
 !
 interface GigabitEthernet0/8
- description to-switch
+ description to-dsw1
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
@@ -145,7 +148,7 @@ interface Vlan10
 interface Vlan200
  no ip address
 !
-ip default-gateway 10.10.0.2
+ip default-gateway 10.1.0.2
 no ip http server
 no ip http secure-server
 logging host 10.20.0.28
