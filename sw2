@@ -45,7 +45,6 @@ enable secret 5 $1$Bcb/$3fYiEiZ0VtalovULl9P7z.
 !
 username admin secret 5 $1$CO3x$oy5duX0b0Wtgs5WmVfIc2.
 username oxy secret 5 $1$HX4t$7pKmWTbZUzJdJOOMWH8G4.
-username tom secret 5 $1$TJ8N$axttSdTWtTdWMD3X4fWm01
 no aaa new-model
 clock timezone EST -5 0
 clock summer-time EDT recurring
@@ -344,8 +343,8 @@ line vty 0 4
  login local
  transport input ssh
 line vty 5 15
- password Password1
- login
+ no login
+ no exec
  transport input none
 !
 ntp server 97.107.128.165
