@@ -74,7 +74,7 @@ ip dhcp excluded-address 10.10.0.1 10.10.0.100
 ip dhcp pool vlan100-pool
  network 10.10.0.0 255.255.255.0
  default-router 10.10.0.2 
- dns-server 1.1.1.1 
+ dns-server 10.20.0.50 
  lease 0 0 1
 !
 !
@@ -159,6 +159,24 @@ interface Vlan200
  ip nat inside
  ip virtual-reassembly in
 !
+interface Vlan300
+ description Tier-0
+ ip address 10.30.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Vlan301
+ description Tier-1
+ ip address 10.30.1.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Vlan302
+ description Tier-2
+ no ip address
+ ip nat inside
+ ip virtual-reassembly in
+!
 ip forward-protocol nd
 no ip http server
 no ip http secure-server
@@ -167,10 +185,16 @@ no ip http secure-server
 ip nat inside source list 1 interface FastEthernet4 overload
 ip nat inside source list 10 interface FastEthernet4 overload
 ip nat inside source list 20 interface FastEthernet4 overload
+ip nat inside source list 30 interface FastEthernet4 overload
+ip nat inside source list 31 interface FastEthernet4 overload
+ip nat inside source list 32 interface FastEthernet4 overload
 ip route 0.0.0.0 0.0.0.0 10.0.0.1
 ip route 10.1.0.0 255.255.255.0 Vlan10
 ip route 10.10.0.0 255.255.255.0 Vlan100
 ip route 10.20.0.0 255.255.255.0 Vlan200
+ip route 10.30.0.0 255.255.255.0 Vlan300
+ip route 10.30.1.0 255.255.255.0 Vlan301
+ip route 10.30.2.0 255.255.255.0 Vlan302
 !
 logging host 10.20.0.28
 !
@@ -179,6 +203,8 @@ access-list 1 permit 10.1.0.0 0.0.0.255
 access-list 10 permit 10.10.0.0 0.0.0.255
 access-list 20 permit 10.20.0.0 0.0.0.255
 access-list 30 permit 10.30.0.0 0.0.0.255
+access-list 31 permit 10.30.1.0 0.0.0.255
+access-list 32 permit 10.30.2.0 0.0.0.255
 !
 control-plane
 !
