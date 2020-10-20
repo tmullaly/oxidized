@@ -71,12 +71,6 @@ clock summer-time EDT recurring
 ip dhcp excluded-address 10.20.0.1 10.20.0.100
 ip dhcp excluded-address 10.10.0.1 10.10.0.100
 !
-ip dhcp pool vlan100-pool
- network 10.10.0.0 255.255.255.0
- default-router 10.10.0.2 
- dns-server 10.20.0.50 
- lease 0 0 1
-!
 !
 !
 ip domain name thunderhouse.com
