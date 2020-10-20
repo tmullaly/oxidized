@@ -178,7 +178,7 @@ interface FastEthernet0/9
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/10
- switchport access vlan 200
+ switchport access vlan 302
  switchport mode access
  switchport voice vlan 100
  no cdp enable
