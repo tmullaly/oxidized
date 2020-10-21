@@ -99,17 +99,14 @@ vlan internal allocation policy ascending
 !
 !
 interface FastEthernet0/1
- description gateway
  switchport access vlan 200
  switchport voice vlan 100
 !
 interface FastEthernet0/2
- description lenovo-dock
  switchport access vlan 200
  switchport voice vlan 100
 !
 interface FastEthernet0/3
- description airport-extreme
  switchport access vlan 10
  switchport voice vlan 100
 !
@@ -224,6 +221,7 @@ interface GigabitEthernet0/1
  switchport mode trunk
 !
 interface GigabitEthernet0/2
+ description trunk-to-dsw1
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
