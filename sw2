@@ -162,7 +162,6 @@ interface FastEthernet0/7
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/8
- description airport-extreme
  switchport access vlan 200
  switchport mode access
  switchport voice vlan 100
@@ -171,7 +170,7 @@ interface FastEthernet0/8
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/9
- description voip-phone
+ description airport-extreme
  switchport access vlan 200
  switchport mode access
  switchport voice vlan 100
@@ -180,7 +179,8 @@ interface FastEthernet0/9
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/10
- switchport access vlan 302
+ description voip-phone
+ switchport access vlan 200
  switchport mode access
  switchport voice vlan 100
  no cdp enable
