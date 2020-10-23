@@ -99,6 +99,7 @@ vlan internal allocation policy ascending
 !
 !
 interface FastEthernet0/1
+ description dock
  switchport access vlan 200
  switchport voice vlan 100
 !
