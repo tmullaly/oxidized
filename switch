@@ -90,27 +90,45 @@ vlan internal allocation policy ascending
 !
 interface GigabitEthernet0/1
  switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/2
  switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/3
- switchport access vlan 10
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/4
  switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/5
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/6
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/7
- switchport trunk allowed vlan 10,100,200,300-302
- switchport mode trunk
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
 !
 interface GigabitEthernet0/8
  switchport trunk native vlan 10
@@ -118,14 +136,12 @@ interface GigabitEthernet0/8
  switchport mode trunk
 !
 interface Vlan1
- description default-vlan
  no ip address
 !
 interface Vlan10
  ip address 10.1.0.12 255.255.255.0
 !
 interface Vlan200
- description Data-Network
  no ip address
 !
 ip default-gateway 10.1.0.2
