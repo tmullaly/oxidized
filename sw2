@@ -54,6 +54,7 @@ system mtu routing 1500
 login on-failure log
 login on-success log
 !
+mls qos
 !
 crypto pki trustpoint TP-self-signed-2757088128
  enrollment selfsigned
@@ -183,7 +184,10 @@ interface FastEthernet0/10
  description voip-phone
  switchport access vlan 100
  switchport mode access
- switchport voice vlan 100
+ switchport voice vlan dot1p
+ switchport priority extend trust
+ priority-queue out 
+ mls qos trust cos
  no cdp enable
  spanning-tree portfast
  spanning-tree bpduguard enable
