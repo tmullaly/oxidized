@@ -182,9 +182,9 @@ interface FastEthernet0/9
 !
 interface FastEthernet0/10
  description voip-phone
- switchport access vlan 100
+ switchport access vlan 200
  switchport mode access
- switchport voice vlan dot1p
+ switchport voice vlan 100
  switchport priority extend trust
  priority-queue out 
  mls qos trust cos
