@@ -182,15 +182,10 @@ interface FastEthernet0/9
 !
 interface FastEthernet0/10
  description voip-phone
- switchport access vlan 200
- switchport mode trunk
- switchport voice vlan 100
- switchport priority extend trust
+ switchport access vlan 100
  priority-queue out 
  mls qos trust cos
  no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/11
  switchport access vlan 200
