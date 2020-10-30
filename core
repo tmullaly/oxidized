@@ -36,7 +36,6 @@
 ! 
 ! 
 !
-!
 version 15.7
 service timestamps debug datetime msec
 service timestamps log datetime msec
