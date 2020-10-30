@@ -1,0 +1,308 @@
+! Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(50)SE4, RELEASE SOFTWARE (fc1)
+! 
+! Image: Software: C3750-IPBASEK9-M, 12.2(50)SE4, RELEASE SOFTWARE (fc1)
+! Image: Compiled: Fri 26-Mar-10 06:38 by prod_rel_team
+! Image: flash:/c3750-ipbasek9-mz.122-50.SE4.bin
+! Chassis type: WS-C3750V2-24PS
+! Memory: main 131072K
+! Processor ID: FDO1431Y11C
+! CPU: PowerPC405
+! 
+! VTP: VTP Version                     : running VTP1 (VTP2 capable)
+! VTP: Configuration Revision          : 7
+! VTP: Maximum VLANs supported locally : 1005
+! VTP: Number of existing VLANs        : 12
+! VTP: VTP Operating Mode              : Server
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP V2 Mode                     : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: MD5 digest                      : 0xA4 0x38 0x03 0x8A 0xB9 0x10 0xE8 0xD7 
+! VTP: Local updater ID is 10.1.0.2 on interface Vl10 (lowest numbered VLAN interface found)
+! 
+! NAME: "2", DESCR: "WS-C3750V2-24PS"
+! PID: WS-C3750V2-24PS-S , VID: V04, SN: FDO1431Y11C
+! 
+! 
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname dsw1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$uKtT$5EL46YHMUCn6okxfrVY6B1
+!
+username oxy secret 5 $1$V.ae$SEDrjUBoHKralm/OdPiYZ/
+username admin privilege 15 secret 5 $1$mY7.$kvFH1/vuhxkqAZJ7803on.
+no aaa new-model
+switch 2 provision ws-c3750v2-24ps
+system mtu routing 1500
+ip subnet-zero
+ip routing
+ip domain-name thunderhouse.com
+ip name-server 10.20.0.50
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1645598336
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1645598336
+ revocation-check none
+ rsakeypair TP-self-signed-1645598336
+!
+!
+crypto pki certificate chain TP-self-signed-1645598336
+ certificate self-signed 01
+  3082023C 308201A5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31363435 35393833 3336301E 170D3933 30333031 30303031 
+  31355A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 36343535 
+  39383333 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C84C 8F0EC8AB AB755C69 EC443A27 2F54961B D72640BD BF2FBEAD EE0992C8 
+  1E1C1B94 28B43E58 FC3C5B85 9201487C ABCCDAB1 3D19CD9C 44FF323B 5C37DB57 
+  720FA5C5 955EFAAF C2BCAB7D AFC3C23E C43E45D5 4B9085BB 086F64EF FF8A52BD 
+  1AD13071 2A7DDDB1 BE3EE46C 065BE792 E76750AC B4676842 7D926B5B E3224E90 
+  3D2D0203 010001A3 64306230 0F060355 1D130101 FF040530 030101FF 300F0603 
+  551D1104 08300682 04737733 2E301F06 03551D23 04183016 8014D096 59A0CF91 
+  482B04B4 546FAE2F A19887D7 CADE301D 0603551D 0E041604 14D09659 A0CF9148 
+  2B04B454 6FAE2FA1 9887D7CA DE300D06 092A8648 86F70D01 01040500 03818100 
+  9E99B841 847F166C A36A1182 FE52B7AD 0472378D 7C17580E 5906ED65 4C6D42BE 
+  CC3F7F95 E6BC08BB 962FEC37 BDAB7DA9 892EE51E EA369F0F A64BFD40 14356340 
+  CB2AB5DF DCD77F3B 0D2D1C04 67AFB53C B6341F69 2690FA22 C84A1FC0 986240A6 
+  7901AF05 BDE7A6E4 6699671D 4B3662BA EE2550AF 20CDC6DC E5036F63 E515632D
+  quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet2/0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/2
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/3
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/4
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/5
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/6
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/7
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/8
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/9
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/10
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/11
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/12
+ switchport access vlan 200
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet2/0/13
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/14
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/15
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/16
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/17
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/18
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/19
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/20
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/21
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/22
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet2/0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet2/0/1
+!
+interface GigabitEthernet2/0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description Management
+ ip address 10.1.0.2 255.255.255.0
+!
+interface Vlan100
+ description Voice
+ ip address 10.10.0.2 255.255.255.0
+ ip helper-address 10.20.0.22
+!
+interface Vlan200
+ description Data
+ ip address 10.20.0.2 255.255.255.0
+!
+interface Vlan300
+ description Tier0
+ ip address 10.30.0.2 255.255.255.0
+!
+interface Vlan301
+ description Tier1
+ ip address 10.30.1.2 255.255.255.0
+!
+interface Vlan302
+ description Tier2
+ ip address 10.30.2.2 255.255.255.0
+!
+interface Vlan400
+ description Camera
+ ip address 10.40.0.2 255.255.255.0
+!
+ip default-gateway 10.20.0.1
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.20.0.1
+ip http server
+ip http secure-server
+!
+logging 10.20.0.28
+snmp-server community public RO
+!
+control-plane
+!
+!
+line con 0
+line vty 0 4
+ login local
+line vty 5 15
+ password Password1
+ login
+!
+end
+
