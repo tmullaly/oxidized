@@ -44,7 +44,7 @@ boot-end-marker
 enable secret 5 $1$Bcb/$3fYiEiZ0VtalovULl9P7z.
 !
 username oxy secret 5 $1$WmKU$BN2yXKQ1zW2k/qprm1Q7o/
-username admin secret 5 $1$E6RP$mWgF0nMZxdi40/jE0G7BA0
+username admin privilege 15 secret 5 $1$E6RP$mWgF0nMZxdi40/jE0G7BA0
 no aaa new-model
 clock timezone EST -5 0
 clock summer-time EDT recurring
