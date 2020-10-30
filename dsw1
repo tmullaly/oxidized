@@ -49,6 +49,8 @@ ip domain-name thunderhouse.com
 ip name-server 10.20.0.50
 !
 !
+login on-failure log
+login on-success log
 !
 !
 crypto pki trustpoint TP-self-signed-1645598336
@@ -92,6 +94,7 @@ vlan internal allocation policy ascending
 !
 !
 interface FastEthernet2/0/1
+ description to-core
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
@@ -221,6 +224,7 @@ interface FastEthernet2/0/20
  spanning-tree portfast
 !
 interface FastEthernet2/0/21
+ description to-switch
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
@@ -228,6 +232,7 @@ interface FastEthernet2/0/21
  spanning-tree portfast
 !
 interface FastEthernet2/0/22
+ description to-switch2
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
@@ -235,6 +240,7 @@ interface FastEthernet2/0/22
  spanning-tree portfast
 !
 interface FastEthernet2/0/23
+ description to-sw2
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
@@ -242,6 +248,7 @@ interface FastEthernet2/0/23
  spanning-tree portfast
 !
 interface FastEthernet2/0/24
+ description to-sw1
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
