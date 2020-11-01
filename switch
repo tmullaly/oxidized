@@ -1,8 +1,8 @@
-! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE10, RELEASE SOFTWARE (fc2)
+! Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE11, RELEASE SOFTWARE (fc3)
 ! 
-! Image: Software: C2960-LANBASEK9-M, 15.0(2)SE10, RELEASE SOFTWARE (fc2)
-! Image: Compiled: Mon 18-Jul-16 02:16 by prod_rel_team
-! Image: flash:/c2960-lanbasek9-mz.150-2.SE10.bin
+! Image: Software: C2960-LANBASEK9-M, 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+! Image: Compiled: Sat 19-Aug-17 09:34 by prod_rel_team
+! Image: flash:c2960-lanbasek9-mz.150-2.SE11.bin
 ! Chassis type: WS-C2960G-8TC-L
 ! Memory: main 65536K
 ! Processor ID: FOC1635X3HL
@@ -137,6 +137,7 @@ snmp-server community public RO
 !
 !
 !
+vstack
 privilege exec level 1 show configuration
 privilege exec level 1 show
 !
