@@ -104,8 +104,7 @@ interface GigabitEthernet0/3
  spanning-tree portfast
 !
 interface GigabitEthernet0/4
- description black-cam
- switchport access vlan 400
+ switchport access vlan 200
  spanning-tree portfast
 !
 interface GigabitEthernet0/5
