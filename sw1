@@ -126,11 +126,13 @@ interface FastEthernet0/6
  switchport voice vlan 100
 !
 interface FastEthernet0/7
- switchport access vlan 200
+ description black-cam
+ switchport access vlan 400
  switchport voice vlan 100
 !
 interface FastEthernet0/8
- switchport access vlan 200
+ description white-cam
+ switchport access vlan 400
  switchport voice vlan 100
 !
 interface FastEthernet0/9
@@ -180,34 +182,34 @@ interface FastEthernet0/18
  switchport mode trunk
 !
 interface FastEthernet0/19
- switchport access vlan 200
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/20
- switchport access vlan 200
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/21
- switchport access vlan 200
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/22
- switchport access vlan 200
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/23
- switchport access vlan 200
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302
+ switchport mode trunk
 !
 interface FastEthernet0/24
- switchport access vlan 200
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/1
  description trunk-to-dsw1
