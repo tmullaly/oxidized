@@ -122,6 +122,7 @@ interface FastEthernet0/5
  switchport voice vlan 100
 !
 interface FastEthernet0/6
+ description hv1-eth1
  switchport access vlan 200
  switchport voice vlan 100
 !
@@ -136,11 +137,13 @@ interface FastEthernet0/8
  switchport voice vlan 100
 !
 interface FastEthernet0/9
+ description airport-extreme
  switchport access vlan 200
  switchport voice vlan 100
 !
 interface FastEthernet0/10
- switchport access vlan 200
+ description voip-phone
+ switchport access vlan 100
  switchport voice vlan 100
 !
 interface FastEthernet0/11
@@ -192,21 +195,25 @@ interface FastEthernet0/20
  switchport mode trunk
 !
 interface FastEthernet0/21
+ description hv1-trunk
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/22
+ description hv1-trunk
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/23
+ description hv1-trunk
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
 !
 interface FastEthernet0/24
+ description hv1-trunk
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302
  switchport mode trunk
