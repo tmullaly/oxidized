@@ -104,6 +104,7 @@ interface FastEthernet0/1
  switchport voice vlan 100
 !
 interface FastEthernet0/2
+ description monitor
  switchport access vlan 200
  switchport voice vlan 100
 !
