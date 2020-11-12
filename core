@@ -148,9 +148,6 @@ interface GigabitEthernet0/1.400
 interface Serial0/0/0
  description ## To R1 ##
  ip address 192.168.12.1 255.255.255.0
- encapsulation frame-relay
- shutdown
- no keepalive
 !
 interface Serial0/1/0
  description ## to R3 ##
