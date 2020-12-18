@@ -46,7 +46,7 @@ enable secret 5 $1$uKtT$5EL46YHMUCn6okxfrVY6B1
 username oxy secret 5 $1$V.ae$SEDrjUBoHKralm/OdPiYZ/
 username admin privilege 15 secret 5 $1$mY7.$kvFH1/vuhxkqAZJ7803on.
 no aaa new-model
-clock timezone UTC -5 0
+clock timezone EST -5 0
 system mtu routing 1500
 !
 !
