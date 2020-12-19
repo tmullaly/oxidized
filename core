@@ -155,6 +155,8 @@ interface GigabitEthernet0/1.400
 interface Serial0/0/0
  description ## To R1 ##
  ip address 192.168.12.1 255.255.255.252
+ ip nat inside
+ ip virtual-reassembly in
  service-module t1 clock source internal
 !
 interface Serial0/1/0
