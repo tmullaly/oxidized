@@ -45,19 +45,9 @@ boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$rjrA$jssKd/.w6c.JhfbtNzClA0
+enable secret 5 $1$asOk$fxi8Yu8ks4RRV5Uq7qlQF1
 !
-aaa new-model
-aaa local authentication attempts max-fail 5
-!
-!
-aaa authentication login default local
-!
-!
-!
-!
-!
-aaa session-id common
+no aaa new-model
 clock timezone EST -5 0
 clock summer-time EST recurring
 !
@@ -105,6 +95,7 @@ interface Embedded-Service-Engine0/0
 interface GigabitEthernet0/0
  description to-vlan-900
  ip address 10.90.0.1 255.255.255.0
+ ip helper-address 10.20.0.22
  duplex auto
  speed auto
 !
@@ -118,8 +109,6 @@ interface GigabitEthernet0/1
 interface Serial0/0/0
  description To Core
  ip address 192.168.12.2 255.255.255.252
- ip access-group 101 in
- ip access-group 100 out
  service-module t1 clock source internal
 !
 ip forward-protocol nd
@@ -176,8 +165,6 @@ access-list 101 permit tcp any any eq 123 log NTP
 access-list 101 permit udp any any eq ntp log NTP
 access-list 101 permit ip any any log
 !
-!
-!
 control-plane
 !
 !
@@ -194,6 +181,7 @@ line 2
  transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
  stopbits 1
 line vty 0 4
+ login local
  transport input ssh
 !
 scheduler allocate 20000 1000
