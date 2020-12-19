@@ -5,7 +5,7 @@
 ! ROM Bootstrap: Version 15.0(1r)M16, RELEASE SOFTWARE (fc1)
 ! Image: flash0:c2900-universalk9-mz.SPA.157-3.M.bin
 ! Chassis type: CISCO2901/K9
-! Memory: main 483328K/40960K
+! Memory: main 479232K/45056K
 ! Processor ID: FTX1742831B
 ! CPU: 
 ! Memory: nvram 255K
@@ -30,6 +30,9 @@
 ! 
 ! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 1", DESCR: "WAN Interface Card - HWIC CSU/DSU"
 ! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC15222TJ6
+! 
+! NAME: "One-Port Fast Ethernet High Speed WAN Interface Card on Slot 0 SubSlot 2", DESCR: "One-Port Fast Ethernet High Speed WAN Interface Card"
+! PID: HWIC-1FE          , VID: V02 , SN: FOC16150KP1
 ! 
 ! NAME: "C1941/C2901 AC Power Supply", DESCR: "C1941/C2901 AC Power Supply"
 ! PID: PWR-1941-2901-AC  , VID:    , SN:            
@@ -157,6 +160,13 @@ interface Serial0/0/0
 interface Serial0/1/0
  description ## to R3 ##
  ip address 192.168.13.1 255.255.255.0
+!
+interface FastEthernet0/2/0
+ description Monitor
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
 !
 ip forward-protocol nd
 !
