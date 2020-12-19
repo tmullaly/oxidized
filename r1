@@ -37,7 +37,7 @@
 version 15.7
 service timestamps debug datetime msec
 service timestamps log datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname R1
 !
@@ -47,7 +47,17 @@ boot-end-marker
 !
 enable secret 5 $1$rjrA$jssKd/.w6c.JhfbtNzClA0
 !
-no aaa new-model
+aaa new-model
+aaa local authentication attempts max-fail 5
+!
+!
+aaa authentication login default local
+!
+!
+!
+!
+!
+aaa session-id common
 clock timezone EST -5 0
 clock summer-time EST recurring
 !
@@ -166,6 +176,8 @@ access-list 101 permit tcp any any eq 123 log NTP
 access-list 101 permit udp any any eq ntp log NTP
 access-list 101 permit ip any any log
 !
+!
+!
 control-plane
 !
 !
@@ -182,7 +194,6 @@ line 2
  transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
  stopbits 1
 line vty 0 4
- login local
  transport input ssh
 !
 scheduler allocate 20000 1000
