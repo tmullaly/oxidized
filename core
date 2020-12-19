@@ -149,6 +149,7 @@ interface GigabitEthernet0/1.302
 interface GigabitEthernet0/1.400
  encapsulation dot1Q 400
  ip address 10.40.0.1 255.255.255.0
+ ip helper-address 10.20.0.22
  ip nat inside
  ip virtual-reassembly in
 !
