@@ -108,6 +108,7 @@ interface GigabitEthernet0/1
 interface Serial0/0/0
  description To Core
  ip address 192.168.12.2 255.255.255.252
+ ip access-group 101 in
  ip access-group 100 out
  service-module t1 clock source internal
 !
@@ -124,7 +125,46 @@ logging host 10.20.0.28
 !
 !
 snmp-server community public RO
+access-list 100 permit tcp any any eq echo log ECHO
+access-list 100 permit udp any any eq echo log ECHO
+access-list 100 permit tcp any any eq ftp-data log FTP
+access-list 100 permit tcp any any eq ftp log FTP
+access-list 100 permit tcp any any eq 22 log SSH
+access-list 100 permit tcp any any eq telnet log TELNET
+access-list 100 permit tcp any any eq smtp log SMTP
+access-list 100 permit tcp any any eq domain log DNS
+access-list 100 permit udp any any eq domain log DNS
+access-list 100 permit udp any any eq bootps log DHCP
+access-list 100 permit udp any any eq bootpc log DHCP
+access-list 100 permit udp any any eq tftp log TFTP
+access-list 100 permit tcp any any eq finger log FINGER
+access-list 100 permit tcp any any eq www log HTTP
+access-list 100 permit tcp any any eq 81 log TOR
+access-list 100 permit udp any any eq 82 log TOR
+access-list 100 permit tcp any any eq 88 log KERBEROS
+access-list 100 permit udp any any eq 88 log KERBEROS
+access-list 100 permit tcp any any eq pop3 log POP3
+access-list 100 permit tcp any any eq 123 log NTP
+access-list 100 permit udp any any eq ntp log NTP
+access-list 100 permit tcp any any eq 135 log DCE-RPC
+access-list 100 permit udp any any eq 135 log DCE-RPC
+access-list 100 permit tcp any any eq 137 log NETBIOS
+access-list 100 permit udp any any eq netbios-ns log NETBIOS
+access-list 100 permit udp any any eq netbios-dgm log NETBIOS
+access-list 100 permit tcp any any eq 139 log NETBIOS
+access-list 100 permit tcp any any eq 143 log IMAP
+access-list 100 permit udp any any eq snmp log SNMP
+access-list 100 permit tcp any any eq irc log IRC
 access-list 100 permit ip any any log
+access-list 101 permit tcp any any eq echo log ECHO
+access-list 101 permit udp any any eq echo log ECHO
+access-list 101 permit tcp any any eq ftp-data log FTP
+access-list 101 permit tcp any any eq ftp log FTP
+access-list 101 permit tcp any any eq 22 log SSH
+access-list 101 permit tcp any any eq telnet log TELNET
+access-list 101 permit tcp any any eq 123 log NTP
+access-list 101 permit udp any any eq ntp log NTP
+access-list 101 permit ip any any log
 !
 control-plane
 !
