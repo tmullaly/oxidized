@@ -65,6 +65,8 @@ clock summer-time EST recurring
 no ip domain lookup
 ip domain name thunderhouse.com
 ip cef
+login on-failure log
+login on-success log
 no ipv6 cef
 multilink bundle-name authenticated
 !
