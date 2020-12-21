@@ -110,7 +110,6 @@ interface GigabitEthernet0/0
 interface GigabitEthernet0/1
  description to-dsw1
  no ip address
- ip flow ingress
  duplex auto
  speed auto
 !
@@ -187,9 +186,6 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip flow-top-talkers
- top 10
- sort-by bytes
 !
 ip nat inside source list 9 interface GigabitEthernet0/0 overload
 ip nat inside source list 10 interface GigabitEthernet0/0 overload
