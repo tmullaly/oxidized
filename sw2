@@ -19,16 +19,15 @@
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
 ! VTP: Maximum VLANs supported locally   : 255
-! VTP: Number of existing VLANs          : 12
-! VTP: Configuration Revision            : 15
-! VTP: MD5 digest                        : 0x68 0xC0 0xA1 0xFE 0x61 0x82 0xCC 0xA8 
-! VTP:                                     0x39 0x56 0x0A 0x64 0x97 0xBD 0xC0 0x70 
+! VTP: Number of existing VLANs          : 13
+! VTP: Configuration Revision            : 16
+! VTP: MD5 digest                        : 0x95 0xB2 0x5C 0x4D 0x7B 0x67 0x8E 0xD8 
+! VTP:                                     0xCD 0xF8 0x39 0xDA 0xC2 0xFD 0xD1 0x02 
 ! 
 ! NAME: "1", DESCR: "WS-C2960-24TT-L"
 ! PID: WS-C2960-24TT-L   , VID: V09  , SN: FOC1507Z22B
 ! 
 ! 
-!
 !
 version 15.0
 no service pad
@@ -103,207 +102,79 @@ vlan internal allocation policy ascending
 !
 !
 interface FastEthernet0/1
- description dock
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/2
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/3
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/4
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/5
- description hv1-eth1
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/6
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/7
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/8
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/9
- description airport-extreme
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/10
- description voip-phone
- switchport access vlan 100
- priority-queue out 
- mls qos trust cos
- no cdp enable
 !
 interface FastEthernet0/11
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/12
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/13
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic0
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/14
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic1
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/15
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic2
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/16
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic3
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/17
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic4
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/18
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
+ description esxi-vmnic5
+ switchport trunk allowed vlan 10,100,200,300-302,900
+ switchport mode trunk
 !
 interface FastEthernet0/19
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/20
- switchport access vlan 200
- switchport mode access
- switchport voice vlan 100
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/21
- switchport trunk native vlan 10
- switchport trunk allowed vlan 10,200,300-302
- switchport mode trunk
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/22
- switchport trunk native vlan 10
- switchport trunk allowed vlan 10,200,300-302
- switchport mode trunk
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/23
- switchport trunk native vlan 10
- switchport trunk allowed vlan 10,200,300-302
- switchport mode trunk
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface FastEthernet0/24
- switchport trunk native vlan 10
- switchport trunk allowed vlan 10,200,300-302
- switchport mode trunk
- no cdp enable
- spanning-tree portfast
- spanning-tree bpduguard enable
 !
 interface GigabitEthernet0/1
- description trunk-to-dsw1
+ description trunk-to-dsw1-0/3
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport mode trunk
 !
 interface GigabitEthernet0/2
- description trunk-to-dsw1
+ description trunk-to-sw1-0/2
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport mode trunk
