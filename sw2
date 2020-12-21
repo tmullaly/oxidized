@@ -51,6 +51,7 @@ clock summer-time EDT recurring
 system mtu routing 1500
 !
 !
+no ip domain-lookup
 login on-failure log
 login on-success log
 !
@@ -89,7 +90,9 @@ crypto pki certificate chain TP-self-signed-2757088128
 !
 !
 !
-spanning-tree mode pvst
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast default
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
@@ -323,6 +326,9 @@ snmp-server community public RO
 !
 !
 line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
 line vty 0 4
  login local
  transport input ssh
