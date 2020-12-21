@@ -228,7 +228,7 @@ interface GigabitEthernet0/1
  switchport mode trunk
 !
 interface GigabitEthernet0/2
- description trunk-to-dsw1-0/3
+ description trunk-to-sw2-0/2
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport mode trunk
