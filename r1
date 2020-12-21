@@ -95,7 +95,7 @@ interface Embedded-Service-Engine0/0
  shutdown
 !
 interface GigabitEthernet0/0
- description to-vlan-900
+ description to-sw1-fa0/19
  ip address 10.90.0.1 255.255.255.0
  ip helper-address 10.20.0.22
  duplex auto
@@ -109,7 +109,7 @@ interface GigabitEthernet0/1
  speed auto
 !
 interface Serial0/0/0
- description To Core
+ description to-core-s0/0/0
  ip address 192.168.12.2 255.255.255.252
  service-module t1 clock source internal
 !
