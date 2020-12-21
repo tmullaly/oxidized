@@ -165,7 +165,7 @@ interface GigabitEthernet0/1.400
  ip virtual-reassembly in
 !
 interface Serial0/0/0
- description ## To R1 ##
+ description to-R1-S0/0/0
  ip address 192.168.12.1 255.255.255.252
  ip nat inside
  ip virtual-reassembly in
