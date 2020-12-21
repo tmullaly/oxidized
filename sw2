@@ -29,6 +29,7 @@
 ! 
 ! 
 !
+!
 version 15.0
 no service pad
 service timestamps debug datetime msec
@@ -185,9 +186,6 @@ interface Vlan1
 !
 interface Vlan10
  ip address 10.1.0.9 255.255.255.0
-!
-interface Vlan200
- no ip address
 !
 ip default-gateway 10.1.0.2
 no ip http server
