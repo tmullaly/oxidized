@@ -86,10 +86,6 @@ redundancy
 !
 !
 !
-interface Loopback1
- ip address 172.16.12.2 255.255.255.0
- shutdown
-!
 interface Embedded-Service-Engine0/0
  no ip address
  shutdown
@@ -112,6 +108,9 @@ interface Serial0/0/0
  description to-core-s0/0/0
  ip address 192.168.12.2 255.255.255.252
  service-module t1 clock source internal
+!
+router ospf 1
+ network 0.0.0.0 255.255.255.255 area 0
 !
 ip forward-protocol nd
 !
