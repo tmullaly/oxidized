@@ -102,6 +102,11 @@ vlan internal allocation policy ascending
 !
 !
 !
+interface Port-channel2
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport mode trunk
+!
 interface FastEthernet0/1
 !
 interface FastEthernet0/2
@@ -169,16 +174,18 @@ interface FastEthernet0/23
 interface FastEthernet0/24
 !
 interface GigabitEthernet0/1
- description trunk-to-dsw1-0/3
+ description to-dsw1-gi0/7
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport mode trunk
+ channel-group 2 mode active
 !
 interface GigabitEthernet0/2
- description trunk-to-sw1-0/2
+ description to-dsw1-gi0/8
  switchport trunk native vlan 10
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport mode trunk
+ channel-group 2 mode active
 !
 interface Vlan1
  no ip address
