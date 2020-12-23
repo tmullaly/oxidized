@@ -52,6 +52,7 @@ system mtu routing 1500
 !
 !
 no ip domain-lookup
+ip domain-name thunderhouse.com
 login on-failure log
 login on-success log
 !
