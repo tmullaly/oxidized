@@ -88,6 +88,11 @@ vlan internal allocation policy ascending
 !
 !
 !
+interface Port-channel1
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk native vlan 10
+ switchport mode trunk
+!
 interface Port-channel2
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport trunk native vlan 10
@@ -114,8 +119,16 @@ interface GigabitEthernet0/3
 interface GigabitEthernet0/4
 !
 interface GigabitEthernet0/5
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk native vlan 10
+ switchport mode trunk
+ channel-group 1 mode active
 !
 interface GigabitEthernet0/6
+ switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk native vlan 10
+ switchport mode trunk
+ channel-group 1 mode active
 !
 interface GigabitEthernet0/7
  description to-sw2-gi0/1
