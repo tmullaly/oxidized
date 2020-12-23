@@ -215,6 +215,7 @@ snmp-server community public RO
 access-list 9 permit 10.1.0.0 0.0.0.255
 access-list 10 permit 10.10.0.0 0.0.0.255
 access-list 12 permit 192.168.12.0 0.0.0.3
+access-list 12 permit 192.168.15.0 0.0.0.255
 access-list 20 permit 10.30.2.0 0.0.0.255
 access-list 20 permit 10.20.0.0 0.0.0.255
 access-list 30 permit 10.30.0.0 0.0.0.255
