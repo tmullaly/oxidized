@@ -98,9 +98,8 @@ interface GigabitEthernet0/0
  speed auto
 !
 interface GigabitEthernet0/1
- description monitor
- no ip address
- shutdown
+ description to-r2
+ ip address 192.168.15.2 255.255.255.240
  duplex auto
  speed auto
 !
