@@ -119,12 +119,14 @@ interface GigabitEthernet0/3
 interface GigabitEthernet0/4
 !
 interface GigabitEthernet0/5
+ description to-sw1-gi0/1
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport trunk native vlan 10
  switchport mode trunk
  channel-group 1 mode active
 !
 interface GigabitEthernet0/6
+ description to-sw1-gi0/2
  switchport trunk allowed vlan 10,100,200,300-302,400
  switchport trunk native vlan 10
  switchport mode trunk
