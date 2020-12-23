@@ -88,28 +88,73 @@ interface Port-channel1
  switchport mode trunk
 !
 interface FastEthernet0/1
+ description dock
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/2
+ description monitor
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/3
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/4
+ description synology
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/5
+ description buffalo
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/6
+ description hv1-eth1
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/7
+ description black-cam
+ switchport access vlan 400
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/8
+ description white-cam
+ switchport access vlan 400
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/9
+ description airport-extreme
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/10
+ description voip-phone
+ switchport access vlan 100
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/11
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/12
+ switchport access vlan 200
+ switchport voice vlan 100
+ spanning-tree portfast
 !
 interface FastEthernet0/13
  description esxi-vmnic0
