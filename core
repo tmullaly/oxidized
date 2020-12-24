@@ -91,10 +91,6 @@ redundancy
 !
 !
 !
-interface Loopback1
- ip address 172.16.12.1 255.255.255.0
- shutdown
-!
 interface Embedded-Service-Engine0/0
  no ip address
  shutdown
@@ -131,6 +127,13 @@ interface GigabitEthernet0/1.100
 interface GigabitEthernet0/1.200
  encapsulation dot1Q 200
  ip address 10.20.0.1 255.255.255.0
+ ip flow ingress
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.250
+ encapsulation dot1Q 250
+ ip address 10.25.0.1 255.255.255.0
  ip flow ingress
  ip nat inside
  ip virtual-reassembly in
@@ -218,6 +221,7 @@ access-list 12 permit 192.168.12.0 0.0.0.3
 access-list 12 permit 192.168.15.0 0.0.0.255
 access-list 20 permit 10.30.2.0 0.0.0.255
 access-list 20 permit 10.20.0.0 0.0.0.255
+access-list 20 permit 10.25.0.0 0.0.0.255
 access-list 30 permit 10.30.0.0 0.0.0.255
 access-list 31 permit 10.30.1.0 0.0.0.255
 access-list 32 permit 10.30.2.0 0.0.0.255
