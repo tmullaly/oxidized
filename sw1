@@ -19,10 +19,10 @@
 ! VTP: --------------
 ! VTP: VTP Operating Mode                : Server
 ! VTP: Maximum VLANs supported locally   : 255
-! VTP: Number of existing VLANs          : 13
-! VTP: Configuration Revision            : 8
-! VTP: MD5 digest                        : 0x71 0x2E 0x04 0x64 0xD9 0xEC 0x70 0x70 
-! VTP:                                     0x1C 0x61 0x0F 0xA5 0x2D 0x65 0x04 0xBC 
+! VTP: Number of existing VLANs          : 14
+! VTP: Configuration Revision            : 9
+! VTP: MD5 digest                        : 0x74 0x6E 0xFE 0xF7 0xE9 0x09 0xF3 0xB9 
+! VTP:                                     0x71 0xCB 0xB4 0xF1 0xB8 0xB4 0x67 0x6F 
 ! 
 ! NAME: "1", DESCR: "WS-C2960-24TT-L"
 ! PID: WS-C2960-24TT-L   , VID: V11  , SN: FCQ1715X28K
@@ -104,7 +104,7 @@ vlan internal allocation policy ascending
 !
 interface Port-channel1
  switchport trunk native vlan 10
- switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk allowed vlan 10,100,200,250,300-302,400
  switchport mode trunk
 !
 interface FastEthernet0/1
@@ -148,8 +148,7 @@ interface FastEthernet0/8
 !
 interface FastEthernet0/9
  description airport-extreme
- switchport access vlan 200
- switchport voice vlan 100
+ switchport access vlan 250
 !
 interface FastEthernet0/10
  description voip-phone
@@ -230,14 +229,14 @@ interface FastEthernet0/24
 interface GigabitEthernet0/1
  description trunk-to-dsw1-0/5
  switchport trunk native vlan 10
- switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk allowed vlan 10,100,200,250,300-302,400
  switchport mode trunk
  channel-group 1 mode active
 !
 interface GigabitEthernet0/2
  description trunk-to-dsw1-0/6
  switchport trunk native vlan 10
- switchport trunk allowed vlan 10,100,200,300-302,400
+ switchport trunk allowed vlan 10,100,200,250,300-302,400
  switchport mode trunk
  channel-group 1 mode active
 !
