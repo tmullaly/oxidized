@@ -198,6 +198,10 @@ interface FastEthernet0/22
 interface FastEthernet0/23
 !
 interface FastEthernet0/24
+ description hyperv-trunk
+ switchport trunk native vlan 10
+ switchport trunk allowed vlan 10,100,200,300-302
+ switchport mode trunk
 !
 interface GigabitEthernet0/1
  description to-dsw1-gi0/7
