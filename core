@@ -20,7 +20,7 @@
 ! VTP: VTP V2 Mode                     : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: MD5 digest                      : 0xBF 0x86 0x94 0x45 0xFC 0xDF 0xB5 0x70 
-! VTP: Local updater ID is 10.0.0.250 on interface Gi0/0 (first interface found)
+! VTP: Local updater ID is 10.1.0.1 on interface Gi0/1.10 (first interface found)
 ! 
 ! NAME: "CISCO2901/K9", DESCR: "CISCO2901/K9 chassis, Hw Serial#: FTX1742831B, Hw Revision: 1.0"
 ! PID: CISCO2901/K9      , VID: V06 , SN: FTX1742831B
@@ -45,7 +45,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname Core
+hostname core
 !
 boot-start-marker
 boot-end-marker
@@ -96,10 +96,8 @@ interface Embedded-Service-Engine0/0
  shutdown
 !
 interface GigabitEthernet0/0
- description to-wan
- ip address 10.0.0.250 255.255.255.0
- ip nat outside
- ip virtual-reassembly in
+ no ip address
+ shutdown
  duplex auto
  speed auto
 !
@@ -112,76 +110,50 @@ interface GigabitEthernet0/1
 interface GigabitEthernet0/1.10
  encapsulation dot1Q 10 native
  ip address 10.1.0.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.100
  encapsulation dot1Q 100
  ip address 10.10.0.1 255.255.255.0
  ip access-group 102 in
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.200
  encapsulation dot1Q 200
  ip address 10.20.0.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.250
  encapsulation dot1Q 250
  ip address 10.25.0.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.300
  encapsulation dot1Q 300
  ip address 10.30.0.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.301
  encapsulation dot1Q 301
  ip address 10.30.1.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.302
  encapsulation dot1Q 302
  ip address 10.30.2.1 255.255.255.0
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.400
  encapsulation dot1Q 400
  ip address 10.40.0.1 255.255.255.0
  ip helper-address 10.20.0.22
- ip flow ingress
- ip nat inside
- ip virtual-reassembly in
 !
 interface Serial0/0/0
  description to-r1-s0/0/0
  ip address 192.168.12.1 255.255.255.252
- ip nat inside
- ip virtual-reassembly in
  service-module t1 clock source internal
 !
 interface Serial0/1/0
  description ## to R3 ##
  ip address 192.168.13.1 255.255.255.0
+ shutdown
 !
 interface FastEthernet0/2/0
- description Monitor
- no ip address
- shutdown
+ description to-wan-router
+ ip address 10.0.5.1 255.255.255.252
  duplex auto
  speed auto
 !
@@ -193,19 +165,7 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
-ip nat inside source list 9 interface GigabitEthernet0/0 overload
-ip nat inside source list 10 interface GigabitEthernet0/0 overload
-ip nat inside source list 12 interface GigabitEthernet0/0 overload
-ip nat inside source list 20 interface GigabitEthernet0/0 overload
-ip nat inside source list 30 interface GigabitEthernet0/0 overload
-ip nat inside source list 31 interface GigabitEthernet0/0 overload
-ip nat inside source list 32 interface GigabitEthernet0/0 overload
-ip nat inside source list 40 interface GigabitEthernet0/0 overload
-ip nat inside source list 90 interface GigabitEthernet0/0 overload
-ip nat inside source static 10.10.0.10 10.0.0.10
-ip nat inside source static 10.20.0.35 10.0.0.35
-ip nat inside source static 10.20.0.57 10.0.0.57
-ip route 0.0.0.0 0.0.0.0 10.0.0.1
+ip route 0.0.0.0 0.0.0.0 10.0.5.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
@@ -215,17 +175,6 @@ logging host 10.20.0.28
 !
 !
 snmp-server community public RO
-access-list 9 permit 10.1.0.0 0.0.0.255
-access-list 10 permit 10.10.0.0 0.0.0.255
-access-list 12 permit 192.168.12.0 0.0.0.3
-access-list 12 permit 192.168.15.0 0.0.0.255
-access-list 20 permit 10.30.2.0 0.0.0.255
-access-list 20 permit 10.20.0.0 0.0.0.255
-access-list 20 permit 10.25.0.0 0.0.0.255
-access-list 30 permit 10.30.0.0 0.0.0.255
-access-list 31 permit 10.30.1.0 0.0.0.255
-access-list 32 permit 10.30.2.0 0.0.0.255
-access-list 90 permit 10.90.0.0 0.0.0.255
 access-list 102 deny   udp any any eq 17500 log
 access-list 102 permit ip any any
 !
