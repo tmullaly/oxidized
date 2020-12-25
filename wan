@@ -1,0 +1,183 @@
+! Cisco IOS Software, C880 Software (C880DATA-UNIVERSALK9-M), Version 15.4(3)M5, RELEASE SOFTWARE (fc1)
+! 
+! Image: Software: C880DATA-UNIVERSALK9-M, 15.4(3)M5, RELEASE SOFTWARE (fc1)
+! Image: Compiled: Tue 09-Feb-16 06:35 by prod_rel_team
+! ROM Bootstrap: Version 12.4(22r)YB5, RELEASE SOFTWARE (fc1)
+! Image: flash:c880data-universalk9-mz.154-3.M5.bin
+! Chassis type: 881
+! Memory: main 236544K/25600K
+! Processor ID: FTX1405YDC7
+! CPU: MPC8300
+! Memory: nvram 256K
+! Memory: flash 126000K
+! 
+! VTP: VTP Version                     : 2
+! VTP: Configuration Revision          : 9
+! VTP: Maximum VLANs supported locally : 12
+! VTP: Number of existing VLANs        : 11
+! VTP: VTP Operating Mode              : Server
+! VTP: VTP Domain Name                 : 
+! VTP: VTP Pruning Mode                : Disabled
+! VTP: VTP V2 Mode                     : Disabled
+! VTP: VTP Traps Generation            : Disabled
+! VTP: MD5 digest                      : 0x7A 0x7E 0x34 0x5C 0x9E 0x9C 0x7A 0x09 
+! VTP: Local updater ID is 10.0.5.2 on interface Vl5 (lowest numbered VLAN interface found)
+! 
+! NAME: "881", DESCR: "881 chassis, Hw Serial#: FTX1405YDC7, Hw Revision: 1.0"
+! PID: CISCO881-SEC-K9   , VID: V01 , SN: FTX1405YDC7
+! 
+! NAME: "ESW Power Daughter Card", DESCR: "4-Port ESW Power Daughter Card"
+! PID: 800-IL-PM-2       , VID: V01, SN: FOC14126A57
+! 
+! 
+!
+!
+version 15.4
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname wan
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$6YF1$XJUtqq79zKW3uJ3tJsgPp.
+!
+no aaa new-model
+memory-size iomem 10
+clock timezone EST -5 0
+clock summer-time EST recurring
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip domain name thunderhouse.com
+ip cef
+login on-failure log
+login on-success log
+no ipv6 cef
+!
+!
+multilink bundle-name authenticated
+cts logging verbose
+license udi pid CISCO881-SEC-K9 sn FTX1405YDC7
+!
+!
+username oxy secret 5 $1$9cf4$rj5uLXeM0sDYxIQKCUdIt1
+username admin privilege 15 secret 5 $1$.0Rt$K1onl9/llFQCDSKr0gnW61
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0
+ switchport access vlan 5
+ no ip address
+!
+interface FastEthernet1
+ no ip address
+!
+interface FastEthernet2
+ no ip address
+!
+interface FastEthernet3
+ no ip address
+!
+interface FastEthernet4
+ description wan
+ ip address 10.0.0.250 255.255.255.0
+ ip nat outside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan5
+ ip address 10.0.5.2 255.255.255.252
+ ip flow ingress
+ ip nat inside
+ ip virtual-reassembly in
+!
+router ospf 1
+ network 0.0.0.0 255.255.255.255 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip nat inside source list 20 interface FastEthernet4 overload
+ip nat inside source static 10.10.0.10 10.0.0.10
+ip nat inside source static 10.20.0.35 10.0.0.35
+ip nat inside source static 10.20.0.57 10.0.0.57
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
+!
+!
+snmp-server community public RO
+access-list 20 permit 10.30.0.0 0.0.0.255
+access-list 20 permit 10.30.1.0 0.0.0.255
+access-list 20 permit 10.30.2.0 0.0.0.255
+access-list 20 permit 10.20.0.0 0.0.0.255
+access-list 20 permit 10.1.0.0 0.0.0.255
+access-list 20 permit 10.10.0.0 0.0.0.255
+access-list 20 permit 192.168.12.0 0.0.0.3
+access-list 20 permit 192.168.15.0 0.0.0.255
+access-list 20 permit 10.25.0.0 0.0.0.255
+access-list 20 permit 10.90.0.0 0.0.0.255
+!
+control-plane
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ no modem enable
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+ntp server 74.6.168.73
+ntp server 69.89.207.99
+ntp server 97.107.128.165
+ntp server 68.183.107.237 minpoll 8
+ntp server 162.248.241.94
+!
+end
+
