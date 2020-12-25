@@ -146,6 +146,7 @@ ip nat inside source static 10.20.0.35 10.0.0.35
 ip nat inside source static 10.20.0.57 10.0.0.57
 ip route 0.0.0.0 0.0.0.0 10.0.0.1
 !
+logging host 10.20.0.28
 !
 snmp-server community public RO
 access-list 20 permit 10.30.0.0 0.0.0.255
