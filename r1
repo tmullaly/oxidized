@@ -98,8 +98,8 @@ interface GigabitEthernet0/0
  speed auto
 !
 interface GigabitEthernet0/1
- description to-r2
- ip address 192.168.15.2 255.255.255.240
+ description to-wan
+ ip address 10.0.6.1 255.255.255.252
  duplex auto
  speed auto
 !
@@ -117,6 +117,7 @@ no ip http server
 no ip http secure-server
 !
 ip route 0.0.0.0 0.0.0.0 192.168.12.1
+ip route 0.0.0.0 0.0.0.0 10.0.6.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
