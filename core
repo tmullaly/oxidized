@@ -166,7 +166,6 @@ no ip http server
 no ip http secure-server
 !
 ip route 0.0.0.0 0.0.0.0 10.0.5.2
-ip route 0.0.0.0 0.0.0.0 192.168.12.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
