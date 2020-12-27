@@ -70,7 +70,7 @@ login on-success log
 !
 spanning-tree mode rapid-pvst
 spanning-tree extend system-id
-spanning-tree vlan 10,100,200,300-302,400 priority 4096
+spanning-tree vlan 10,100,200,250,300-302,400 priority 4096
 !
 !
 !
