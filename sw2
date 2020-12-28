@@ -14,13 +14,12 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : 04c5.a455.d380
-! VTP: Local updater ID is 10.1.0.9 on interface Vl10 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
-! VTP: VTP Operating Mode                : Server
+! VTP: VTP Operating Mode                : Off
 ! VTP: Maximum VLANs supported locally   : 255
 ! VTP: Number of existing VLANs          : 14
-! VTP: Configuration Revision            : 18
+! VTP: Configuration Revision            : 0
 ! VTP: MD5 digest                        : 0xBA 0xA4 0xAF 0xD8 0x0D 0x35 0x1A 0x62 
 ! VTP:                                     0x2A 0x70 0x9D 0x92 0x86 0x32 0xBB 0x0C 
 ! 
@@ -49,6 +48,7 @@ no aaa new-model
 clock timezone EST -5 0
 clock summer-time EDT recurring
 system mtu routing 1500
+vtp mode off
 !
 !
 no ip domain-lookup
@@ -77,6 +77,33 @@ spanning-tree portfast default
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+!
+vlan 10
+ name Management
+!
+vlan 100
+ name Voice
+!
+vlan 200
+ name Data
+!
+vlan 250
+ name Wireless
+!
+vlan 300
+ name Tier0
+!
+vlan 301
+ name Tier1
+!
+vlan 302
+ name Tier2
+!
+vlan 400
+ name Camera
+!
+vlan 900
+ name R1-VLAN
 !
 !
 !
