@@ -14,13 +14,12 @@
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: Device ID                       : cc70.ed98.3380
-! VTP: Local updater ID is 10.1.0.2 on interface Vl10 (lowest numbered VLAN interface found)
 ! VTP: Feature VLAN:
 ! VTP: --------------
-! VTP: VTP Operating Mode                : Server
+! VTP: VTP Operating Mode                : Off
 ! VTP: Maximum VLANs supported locally   : 1005
 ! VTP: Number of existing VLANs          : 13
-! VTP: Configuration Revision            : 8
+! VTP: Configuration Revision            : 0
 ! VTP: MD5 digest                        : 0x65 0xEA 0x6B 0xAF 0xD4 0x0A 0xE1 0x38 
 ! VTP:                                     0x2F 0x9C 0x10 0xF8 0xCB 0xA6 0x1F 0xE8 
 ! 
@@ -59,6 +58,7 @@ ip domain-name thunderhouse.com
 ip name-server 10.20.0.50
 login on-failure log
 login on-success log
+vtp mode off
 !
 !
 !
@@ -76,6 +76,30 @@ spanning-tree vlan 10,100,200,250,300-302,400 priority 4096
 !
 !
 vlan internal allocation policy ascending
+!
+vlan 10
+ name Management
+!
+vlan 100
+ name Voice
+!
+vlan 200
+ name Data
+!
+vlan 250
+ name Wireless
+!
+vlan 300
+ name Tier0
+!
+vlan 301
+ name Tier1
+!
+vlan 302
+ name Tier2
+!
+vlan 400
+ name Camera
 !
 !
 ! 
