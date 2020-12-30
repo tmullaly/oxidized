@@ -20,7 +20,7 @@
 ! VTP: VTP V2 Mode                     : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: MD5 digest                      : 0xBF 0x86 0x94 0x45 0xFC 0xDF 0xB5 0x70 
-! VTP: Local updater ID is 10.1.0.1 on interface Gi0/1.10 (first interface found)
+! VTP: Local updater ID is 192.168.2.1 on interface Gi0/0 (first interface found)
 ! 
 ! NAME: "CISCO2901/K9", DESCR: "CISCO2901/K9 chassis, Hw Serial#: FTX1742831B, Hw Revision: 1.0"
 ! PID: CISCO2901/K9      , VID: V06 , SN: FTX1742831B
@@ -96,8 +96,8 @@ interface Embedded-Service-Engine0/0
  shutdown
 !
 interface GigabitEthernet0/0
- no ip address
- shutdown
+ description to-r2-gi0/1
+ ip address 192.168.2.1 255.255.255.252
  duplex auto
  speed auto
 !
@@ -167,7 +167,7 @@ no ip http server
 no ip http secure-server
 !
 ip route 0.0.0.0 0.0.0.0 10.0.5.2
-ip route 0.0.0.0 0.0.0.0 192.168.12.2
+ip route 0.0.0.0 0.0.0.0 10.0.6.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
