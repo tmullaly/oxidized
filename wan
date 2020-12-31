@@ -101,6 +101,10 @@ username admin privilege 15 secret 5 $1$.0Rt$K1onl9/llFQCDSKr0gnW61
 !
 !
 !
+interface Loopback0
+ ip address 10.2.0.2 255.255.255.255
+ ip flow ingress
+!
 interface FastEthernet0
  description to-core
  switchport access vlan 5
