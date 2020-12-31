@@ -112,6 +112,9 @@ vlan 400
 !
 !
 !
+interface Loopback0
+ ip address 10.2.0.3 255.255.255.255
+!
 interface Port-channel1
  switchport trunk allowed vlan 10,100,200,250,300-302,400
  switchport trunk native vlan 10
