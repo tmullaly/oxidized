@@ -12,15 +12,15 @@
 ! Memory: flash 126000K
 ! 
 ! VTP: VTP Version                     : 2
-! VTP: Configuration Revision          : 10
+! VTP: Configuration Revision          : 16
 ! VTP: Maximum VLANs supported locally : 12
-! VTP: Number of existing VLANs        : 12
+! VTP: Number of existing VLANs        : 10
 ! VTP: VTP Operating Mode              : Server
 ! VTP: VTP Domain Name                 : 
 ! VTP: VTP Pruning Mode                : Disabled
 ! VTP: VTP V2 Mode                     : Disabled
 ! VTP: VTP Traps Generation            : Disabled
-! VTP: MD5 digest                      : 0x2C 0x03 0x6F 0x36 0x37 0x12 0x60 0xAD 
+! VTP: MD5 digest                      : 0x3C 0x47 0x01 0xED 0xF6 0xB4 0xF2 0x42 
 ! VTP: Local updater ID is 10.0.5.2 on interface Vl5 (lowest numbered VLAN interface found)
 ! 
 ! NAME: "881", DESCR: "881 chassis, Hw Serial#: FTX1405YDC7, Hw Revision: 1.0"
@@ -112,6 +112,8 @@ interface FastEthernet1
  no ip address
 !
 interface FastEthernet2
+ description to-r3
+ switchport access vlan 7
  no ip address
 !
 interface FastEthernet3
@@ -137,6 +139,12 @@ interface Vlan5
 !
 interface Vlan6
  ip address 10.0.6.2 255.255.255.252
+ ip flow ingress
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Vlan7
+ ip address 192.168.3.2 255.255.255.252
  ip flow ingress
  ip nat inside
  ip virtual-reassembly in
