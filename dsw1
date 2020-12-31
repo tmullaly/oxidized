@@ -20,8 +20,8 @@
 ! VTP: Maximum VLANs supported locally   : 1005
 ! VTP: Number of existing VLANs          : 13
 ! VTP: Configuration Revision            : 0
-! VTP: MD5 digest                        : 0x65 0xEA 0x6B 0xAF 0xD4 0x0A 0xE1 0x38 
-! VTP:                                     0x2F 0x9C 0x10 0xF8 0xCB 0xA6 0x1F 0xE8 
+! VTP: MD5 digest                        : 0xFB 0x74 0xA1 0x76 0x58 0xBB 0x62 0xAF 
+! VTP:                                     0x2C 0x1B 0x08 0x7C 0x3C 0x87 0x04 0x75 
 ! 
 ! NAME: "1", DESCR: "WS-C3560CX-8PC-S"
 ! PID: WS-C3560CX-8PC-S  , VID: V03  , SN: FOC2242T1TM
@@ -113,7 +113,7 @@ vlan 400
 !
 !
 interface Loopback0
- ip address 10.2.0.3 255.255.255.255
+ ip address 10.2.0.2 255.255.255.255
 !
 interface Port-channel1
  switchport trunk allowed vlan 10,100,200,250,300-302,400
