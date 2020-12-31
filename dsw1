@@ -222,12 +222,11 @@ interface Vlan400
 router ospf 1
  network 0.0.0.0 255.255.255.255 area 0
 !
-ip default-gateway 10.1.0.1
 ip forward-protocol nd
 ip http server
 ip http secure-server
 !
-ip route 0.0.0.0 0.0.0.0 10.20.0.1
+ip route 0.0.0.0 0.0.0.0 10.2.0.3
 !
 !
 logging host 10.20.0.28
