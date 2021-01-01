@@ -159,6 +159,7 @@ line vty 5 15
  transport input ssh
 !
 scheduler allocate 20000 1000
+ntp logging
 ntp server 74.6.168.73
 ntp server 69.89.207.99
 ntp server 97.107.128.165
