@@ -218,6 +218,7 @@ interface Vlan302
 interface Vlan400
  description Camera
  ip address 10.40.0.2 255.255.255.0
+ ip helper-address 10.20.0.22 
 !
 router ospf 1
  network 0.0.0.0 255.255.255.255 area 0
