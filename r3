@@ -48,6 +48,8 @@ enable secret 5 $1$1VJK$awyjqqz2hLfE.xlb0erps1
 !
 no aaa new-model
 !
+clock timezone EST -5 0
+clock summer-time EST recurring
 !
 no ipv6 cef
 ip source-route
@@ -148,5 +150,10 @@ line vty 5 15
  transport input ssh
 !
 scheduler allocate 20000 1000
+ntp server 97.107.128.165
+ntp server 74.6.168.73
+ntp server 162.248.241.94
+ntp server 69.89.207.99
+ntp server 68.183.107.237
 end
 
