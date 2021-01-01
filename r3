@@ -1,19 +1,18 @@
-! Cisco IOS Software, 2800 Software (C2800NM-ADVENTERPRISEK9_IVS-M), Version 15.1(4)M, RELEASE SOFTWARE (fc1)
+! Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M3, RELEASE SOFTWARE (fc1)
 ! 
-! Image: Software: C2800NM-ADVENTERPRISEK9_IVS-M, 15.1(4)M, RELEASE SOFTWARE (fc1)
-! Image: Compiled: Thu 24-Mar-11 14:26 by prod_rel_team
-! ROM Bootstrap: Version 12.4(13r)T, RELEASE SOFTWARE (fc1)
-! Image: flash:c2800nm-adventerprisek9_ivs-mz.151-4.M.bin
-! Chassis type: 2811
-! Memory: main 249856K/12288K
-! Processor ID: FTX1107A4L4
+! Image: Software: C2900-UNIVERSALK9-M, 15.1(4)M3, RELEASE SOFTWARE (fc1)
+! Image: Compiled: Tue 06-Dec-11 17:09 by prod_rel_team
+! ROM Bootstrap: Version 15.0(1r)M15, RELEASE SOFTWARE (fc1)
+! Image: flash0:c2900-universalk9-mz.SPA.151-4.M3.bin
+! Chassis type: CISCO2901/K9
+! Memory: main 483328K/40960K
+! Processor ID: FTX160884PT
 ! CPU: 
-! Memory: nvram 239K
-! Memory: flash 500472K
+! Memory: nvram 255K
 ! 
 ! VTP: VTP Version                     : 2
 ! VTP: Configuration Revision          : 0
-! VTP: Maximum VLANs supported locally : 36
+! VTP: Maximum VLANs supported locally : 20
 ! VTP: Number of existing VLANs        : 5
 ! VTP: VTP Operating Mode              : Server
 ! VTP: VTP Domain Name                 : 
@@ -21,74 +20,63 @@
 ! VTP: VTP V2 Mode                     : Disabled
 ! VTP: VTP Traps Generation            : Disabled
 ! VTP: MD5 digest                      : 0xBF 0x86 0x94 0x45 0xFC 0xDF 0xB5 0x70 
-! VTP: Local updater ID is 10.0.0.13 on interface Fa0/0 (first interface found)
+! VTP: Local updater ID is 192.168.3.1 on interface Gi0/0 (first interface found)
 ! 
-! NAME: "2811 chassis", DESCR: "2811 chassis"
-! PID: CISCO2811         , VID: V04 , SN: FTX1107A4L4
+! NAME: "CISCO2901/K9 chassis", DESCR: "CISCO2901/K9 chassis"
+! PID: CISCO2901/K9      , VID: V04 , SN: FTX160884PT
 ! 
-! NAME: "WAN Interface Card - Serial (1T) on Slot 0 SubSlot 0", DESCR: "WAN Interface Card - Serial (1T)"
-! PID: WIC-1T=           , VID: 1.0, SN: 36693865   
+! NAME: "One-Port Fast Ethernet High Speed WAN Interface Card on Slot 0 SubSlot 0", DESCR: "One-Port Fast Ethernet High Speed WAN Interface Card"
+! PID: HWIC-1FE          , VID: V01 , SN: FOC13426NGF
 ! 
-! NAME: "WAN Interface Card - Serial (1T) on Slot 0 SubSlot 2", DESCR: "WAN Interface Card - Serial (1T)"
-! PID: WIC-1T=           , VID: 1.0, SN: 16816953   
-! 
-! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 3", DESCR: "WAN Interface Card - HWIC CSU/DSU"
-! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC171503UT
+! NAME: "C1941/C2901 AC Power Supply", DESCR: "C1941/C2901 AC Power Supply"
+! PID: PWR-1941-2901-AC  , VID:    , SN:            
 ! 
 ! 
 !
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
-no service password-encryption
+service password-encryption
 !
-hostname R3
+hostname r3
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$I1b.$aFTDImqhXoH3fE7F8AwEx/
+enable secret 5 $1$1VJK$awyjqqz2hLfE.xlb0erps1
 !
 no aaa new-model
 !
 !
-dot11 syslog
+no ipv6 cef
 ip source-route
-!
-!
 ip cef
 !
 !
 !
-no ipv6 cef
+!
+!
+ip domain name thunderhouse.com
 !
 multilink bundle-name authenticated
 !
 !
-!
-!
-!
-!
-!
-!
-!
-!
-!
-voice-card 0
-!
 crypto pki token default removal timeout 0
 !
 !
+license udi pid CISCO2901/K9 sn FTX160884PT
 !
 !
-license udi pid CISCO2811 sn FTX1107A4L4
-username admin secret 5 $1$sXUt$oJc6dDA328BSXF4KkMyxu.
-username oxy secret 5 $1$q8pE$jv3eFxU7hBgKj6AftcxPK1
+username admin privilege 15 secret 5 $1$.0Rt$K1onl9/llFQCDSKr0gnW61
+username oxy secret 5 $1$9cf4$rj5uLXeM0sDYxIQKCUdIt1
 !
 redundancy
 !
 !
+!
+!
+ip ssh version 2
 ! 
 !
 !
@@ -96,67 +84,68 @@ redundancy
 !
 !
 !
+interface Loopback6
+ ip address 10.2.0.6 255.255.255.255
 !
-interface FastEthernet0/0
- ip address 10.0.0.13 255.255.255.0
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description to-wan
+ ip address 192.168.3.1 255.255.255.252
  duplex auto
  speed auto
 !
-interface FastEthernet0/1
- no ip address
- shutdown
+interface GigabitEthernet0/1
+ description to-r2-gi0/0
+ ip address 192.168.23.2 255.255.255.252
  duplex auto
  speed auto
 !
-interface Serial0/0/0
- no ip address
- shutdown
- no fair-queue
+interface FastEthernet0/0/0
+ ip address 10.93.0.1 255.255.255.0
+ duplex auto
+ speed auto
 !
-interface Serial0/2/0
- no ip address
- shutdown
-!
-interface Serial0/3/0
- no ip address
- shutdown
+router ospf 1
+ network 0.0.0.0 255.255.255.255 area 0
 !
 ip forward-protocol nd
+!
 no ip http server
 no ip http secure-server
 !
+ip route 0.0.0.0 0.0.0.0 10.2.0.3
 !
+logging 10.20.0.28
 !
-logging esm config
 !
 !
 !
 !
 snmp-server community public RO
 !
-!
 control-plane
 !
 !
 !
-!
-mgcp profile default
-!
-!
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-!
 line con 0
- exec-timeout 0 0
+ privilege level 15
 line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
 line vty 0 4
  login local
- transport input all
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
 !
 scheduler allocate 20000 1000
 end
