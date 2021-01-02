@@ -163,6 +163,7 @@ no ip http secure-server
 !
 ip nat inside source list 20 interface FastEthernet4 overload
 ip nat inside source list 100 interface FastEthernet4 overload
+ip nat inside source list 101 interface FastEthernet4 overload
 ip nat inside source static 10.10.0.10 10.0.0.10
 ip nat inside source static 10.20.0.35 10.0.0.35
 ip nat inside source static 10.20.0.57 10.0.0.57
@@ -184,10 +185,10 @@ access-list 20 permit 192.168.2.0 0.0.0.3
 access-list 20 permit 192.168.3.0 0.0.0.3
 access-list 20 permit 192.168.12.0 0.0.0.3
 access-list 20 permit 192.168.13.0 0.0.0.3
-access-list 20 permit 192.168.15.0 0.0.0.255
+access-list 20 permit 192.168.15.0 0.0.0.3
 access-list 20 permit 192.168.23.0 0.0.0.3
 access-list 100 permit udp any any eq ntp log
-access-list 100 permit tcp 10.90.0.0 0.0.0.255 any eq www log
+access-list 101 deny   tcp 10.90.0.0 0.0.0.255 any eq www log
 !
 control-plane
 !
