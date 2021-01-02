@@ -33,7 +33,6 @@
 ! 
 ! 
 !
-!
 version 15.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -164,7 +163,7 @@ ntp server 74.6.168.73
 ntp server 69.89.207.99
 ntp server 97.107.128.165
 ntp server 68.183.107.237 minpoll 9
-ntp server 162.248.241.94 minpoll 7
+ntp server 162.248.241.94
 !
 end
 
