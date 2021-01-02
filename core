@@ -28,11 +28,11 @@
 ! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 0", DESCR: "WAN Interface Card - HWIC CSU/DSU"
 ! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC16374XXF
 ! 
-! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 1", DESCR: "WAN Interface Card - HWIC CSU/DSU"
-! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC15222TJ6
-! 
 ! NAME: "One-Port Fast Ethernet High Speed WAN Interface Card on Slot 0 SubSlot 2", DESCR: "One-Port Fast Ethernet High Speed WAN Interface Card"
 ! PID: HWIC-1FE          , VID: V02 , SN: FOC16150KP1
+! 
+! NAME: "WAN Interface Card - HWIC CSU/DSU on Slot 0 SubSlot 3", DESCR: "WAN Interface Card - HWIC CSU/DSU"
+! PID: HWIC-1DSU-T1      , VID: V02 , SN: FOC15222TJ6
 ! 
 ! NAME: "C1941/C2901 AC Power Supply", DESCR: "C1941/C2901 AC Power Supply"
 ! PID: PWR-1941-2901-AC  , VID:    , SN:            
@@ -150,16 +150,15 @@ interface Serial0/0/0
  service-module t1 cablelength short 110ft
  service-module t1 timeslots 1-12
 !
-interface Serial0/1/0
- description ## to R3 ##
- ip address 192.168.13.1 255.255.255.0
- shutdown
-!
 interface FastEthernet0/2/0
  description to-wan-router
  ip address 10.0.5.1 255.255.255.252
  duplex auto
  speed auto
+!
+interface Serial0/3/0
+ no ip address
+ shutdown
 !
 router ospf 1
  network 0.0.0.0 255.255.255.255 area 0
