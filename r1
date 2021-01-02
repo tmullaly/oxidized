@@ -5,7 +5,7 @@
 ! ROM Bootstrap: Version 15.0(1r)M9, RELEASE SOFTWARE (fc1)
 ! Image: flash0:c2900-universalk9-mz.SPA.157-3.M.bin
 ! Chassis type: CISCO2901/K9
-! Memory: main 479232K/45056K
+! Memory: main 483328K/40960K
 ! Processor ID: FTX151202YR
 ! CPU: 
 ! Memory: nvram 255K
@@ -35,6 +35,7 @@
 ! PID: PWR-1941-2901-AC  , VID:    , SN:            
 ! 
 ! 
+!
 !
 version 15.7
 service timestamps debug datetime msec
