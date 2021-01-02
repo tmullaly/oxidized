@@ -187,7 +187,7 @@ access-list 20 permit 192.168.13.0 0.0.0.3
 access-list 20 permit 192.168.15.0 0.0.0.255
 access-list 20 permit 192.168.23.0 0.0.0.3
 access-list 100 permit udp any any eq ntp log
-access-list 100 permit tcp 0.0.0.0 255.255.255.0 any eq www log
+access-list 100 permit tcp 10.90.0.0 0.0.0.255 any eq www log
 !
 control-plane
 !
