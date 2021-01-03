@@ -153,8 +153,9 @@ interface Vlan7
  ip nat inside
  ip virtual-reassembly in
 !
-router ospf 1
- network 0.0.0.0 255.255.255.255 area 0
+!
+router eigrp 1
+ network 0.0.0.0
 !
 ip forward-protocol nd
 no ip http server
@@ -188,7 +189,7 @@ access-list 20 permit 192.168.13.0 0.0.0.3
 access-list 20 permit 192.168.15.0 0.0.0.3
 access-list 20 permit 192.168.23.0 0.0.0.3
 access-list 100 permit udp any any eq ntp log
-access-list 101 permit tcp 10.90.0.0 0.0.0.255 any eq www
+access-list 101 permit ip 10.90.0.0 0.0.0.255 any
 !
 control-plane
 !
