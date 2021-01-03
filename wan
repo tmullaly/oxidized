@@ -173,26 +173,16 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.1
 logging host 10.20.0.28
 !
 snmp-server community public RO
-access-list 20 permit 10.0.6.0 0.0.0.3
-access-list 20 permit 10.0.5.0 0.0.0.3
-access-list 20 permit 10.1.0.0 0.0.0.255
 access-list 20 permit 10.10.0.0 0.0.0.255
 access-list 20 permit 10.30.0.0 0.0.0.255
 access-list 20 permit 10.30.1.0 0.0.0.255
 access-list 20 permit 10.30.2.0 0.0.0.255
 access-list 20 permit 10.20.0.0 0.0.0.255
 access-list 20 permit 10.25.0.0 0.0.0.255
-access-list 20 permit 10.90.0.0 0.0.0.255
-access-list 20 permit 10.92.0.0 0.0.0.255
-access-list 20 permit 10.93.0.0 0.0.0.255
-access-list 20 permit 192.168.2.0 0.0.0.3
-access-list 20 permit 192.168.3.0 0.0.0.3
-access-list 20 permit 192.168.12.0 0.0.0.3
-access-list 20 permit 192.168.13.0 0.0.0.3
-access-list 20 permit 192.168.15.0 0.0.0.3
-access-list 20 permit 192.168.23.0 0.0.0.3
 access-list 100 permit udp any any eq ntp log
-access-list 101 permit ip 10.90.0.0 0.0.0.255 any
+access-list 101 permit tcp 10.90.0.0 0.0.0.255 any eq www
+access-list 101 permit tcp 10.92.0.0 0.0.0.255 any eq www
+access-list 101 permit tcp 10.93.0.0 0.0.0.255 any eq www
 !
 control-plane
 !
