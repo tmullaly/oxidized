@@ -111,8 +111,12 @@ interface FastEthernet0/0/0
  duplex auto
  speed auto
 !
-router ospf 1
- network 0.0.0.0 255.255.255.255 area 0
+!
+router eigrp 1
+ network 10.2.0.6 0.0.0.0
+ network 10.93.0.1 0.0.0.0
+ network 192.168.3.1 0.0.0.0
+ network 192.168.23.2 0.0.0.0
 !
 ip forward-protocol nd
 !
