@@ -59,6 +59,7 @@ ip cef
 !
 !
 !
+no ip domain lookup
 ip domain name thunderhouse.com
 !
 multilink bundle-name authenticated
@@ -134,6 +135,7 @@ control-plane
 !
 line con 0
  privilege level 15
+ logging synchronous
 line aux 0
 line 2
  no activation-character
