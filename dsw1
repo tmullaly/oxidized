@@ -132,6 +132,8 @@ interface GigabitEthernet0/1
  switchport mode trunk
 !
 interface GigabitEthernet0/2
+ no switchport
+ ip address 192.168.50.2 255.255.255.252
 !
 interface GigabitEthernet0/3
 !
