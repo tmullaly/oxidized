@@ -132,16 +132,8 @@ interface GigabitEthernet0/1
  switchport mode trunk
 !
 interface GigabitEthernet0/2
- description to-sw1-gi0/1
- switchport trunk allowed vlan 10,100,200,300-302,400
- switchport trunk native vlan 10
- switchport mode trunk
 !
 interface GigabitEthernet0/3
- description to-sw2-gi0/1
- switchport trunk allowed vlan 10,100,200,300-302,400
- switchport trunk native vlan 10
- switchport mode trunk
 !
 interface GigabitEthernet0/4
 !
@@ -220,10 +212,8 @@ interface Vlan400
  ip address 10.40.0.2 255.255.255.0
  ip helper-address 10.20.0.22 
 !
-!
-router eigrp 1
- network 0.0.0.0
- eigrp stub connected summary
+router ospf 1
+ network 0.0.0.0 255.255.255.255 area 0
 !
 ip forward-protocol nd
 ip http server
